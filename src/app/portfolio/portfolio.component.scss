@@ -1,0 +1,21 @@
+section.cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(auto-fill, auto);
+	grid-gap: 2rem;
+
+	.card {
+		background-color: var(--main-gray);
+		padding: 2rem;
+		border-radius: 0.5rem;
+	text-decoration: none;
+
+		img {
+			max-width: 100%;
+		}
+
+		&:hover {
+			background-color: var(--color-yellow);
+		}
+	}
+}

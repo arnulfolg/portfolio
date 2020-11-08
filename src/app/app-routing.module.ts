@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'education', component: EducationComponent},
   { path: 'portfolio', component: PortfolioComponent},
-  { path: 'portfolio/project', component: ProjectComponent},
+  { path: 'portfolio/:project', component: ProjectComponent},
   { path: 'typography', component: TypographyComponent},
 ];
 

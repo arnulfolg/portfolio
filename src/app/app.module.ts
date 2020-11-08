@@ -10,6 +10,8 @@ import { ProjectComponent } from './project/project.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './structure/header/header.component';
 import { FooterComponent } from './structure/footer/footer.component';
+import { TypographyComponent } from './typography/typography.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { FooterComponent } from './structure/footer/footer.component';
     ProjectComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TypographyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

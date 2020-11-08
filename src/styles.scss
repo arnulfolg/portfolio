@@ -4,7 +4,7 @@
 
 :root {
 	--color-yellow: #FFD30F;
-	--color-white: #f3f3f3;
+	--color-white: #ffffff;
 	--color-black-light: #191919;
 	--color-black: #000000;
 	--main-gray: #cac4b0;
@@ -28,28 +28,29 @@ html {
 
 .container {
 	display: grid;
-	grid-template-columns: 40px 1fr 40px;
-	grid-template-rows: minmax(120px, 320px) auto 320px;
-	grid-template-areas: ". header ."
+	grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+	grid-template-rows: max-content auto auto;
+	grid-template-areas: "header header header"
 					". main ."
-					". footer .";
-	background-color: var(--color-yellow);
+					"footer footer footer";
+	border: var(--color-yellow) solid 40px;
+	min-height: 100vh;
 }
 
 app-header {
 	grid-area: header;
-	align-self: center;
+	background-color: var(--color-yellow);
 }
 .main {
 	grid-area: main;
-	background-color: var(--color-white);
 
 	display: grid;
-	grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+	grid-template-columns: subgrid;
 	grid-template-rows: auto;
 }
 app-footer {
 	grid-area: footer;
+	background-color: var(--color-yellow);
 }
 
 

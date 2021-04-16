@@ -4,9 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import WithTheme from './WithTheme'
+
+const AppWithTheme = WithTheme(App)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <AppWithTheme />
   </React.StrictMode>,
   document.getElementById('root')
 );

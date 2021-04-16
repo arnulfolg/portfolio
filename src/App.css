@@ -1,6 +1,9 @@
 .App {
   @apply
+      text-lg
       min-h-screen
+			transition-all
+      duration-200
       max-w-full
       border-yellow-400
       border-solid
@@ -8,4 +11,66 @@
       dark:bg-gray-800
       dark:border-black;
   border-width: 1.4rem;
+}
+
+.main {
+  @apply
+      max-w-prose
+      mx-auto
+      px-8
+      py-32
+      mt-60
+
+      text-black
+      dark:text-white
+}
+
+.section {
+  @apply 
+        mb-32
+}
+
+.section_cols-3 {
+  @apply
+        grid
+        sm:grid-cols-3
+        gap-4
+
+        grid-cols-1
+}
+
+.section_cols-2 {
+  @apply
+        grid
+        sm:grid-cols-2
+        gap-4
+
+        grid-cols-1
+}
+
+h2 {
+  @apply
+        text-2xl
+        text-center
+        font-semibold
+        leading-relaxed
+        mb-4
+}
+
+h3 {
+  @apply
+        text-xl
+        font-semibold
+        leading-relaxed
+        mb-1
+}
+
+ul.list {
+  @apply 
+        list-disc
+        list-inside
+}
+
+.img {
+  @apply max-w-full
 }

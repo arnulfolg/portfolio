@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './Header.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,12 +7,43 @@ import ThemeContext from './../../ThemeContext'
 
 function Header() {
 
+	const scrollHeight = 120
+
 	const [getlanguate, setlanguate] = useState("Español")
-	const [themeIcon, setthemeIcon] = useState(faSun)
+	const [themeIcon, setthemeIcon] = useState(faMoon)
 	const { gettheme, toggleTheme} = useContext(ThemeContext)
 
+  const [isShrunk, setShrunk] = useState(false);
+	useEffect(() => {
+		
+    const onScroll = () => {
+      setShrunk((isShrunk) => {
+        if (
+          !isShrunk &&
+          (document.body.scrollTop > scrollHeight ||
+            document.documentElement.scrollTop > scrollHeight)
+        ) {
+          return true;
+        }
+
+        if (
+          isShrunk &&
+          document.body.scrollTop < scrollHeight &&
+          document.documentElement.scrollTop < scrollHeight
+        ) {
+          return false;
+        }
+
+        return isShrunk;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+	}, [])
+
 	const toggleThemeButton = () => {
-		(gettheme === faSun)? setthemeIcon(faMoon) : setthemeIcon(faSun)
+		(themeIcon === faSun)? setthemeIcon(faMoon) : setthemeIcon(faSun)
 		toggleTheme()
 	}
 	const toggleLanguage = () => {
@@ -20,21 +51,29 @@ function Header() {
 	}
 
 	return (
-		<header className="header">
+		<header className={`header ${isShrunk ? "header_small" : ""} `}>
 			<section className="titles">
 				<h1>Arnulfo Loredo</h1>
 				<p className="subtitle">Web Designer & Front End Developer</p>
 			</section>
 			<ul className="controls">
 				<li>
-					<button className="toggleButton" onClick={toggleThemeButton}>
+					<button 
+					className="toggleButton" 
+					onClick={toggleThemeButton}>
 						<FontAwesomeIcon icon={themeIcon} />
-						{gettheme} Mode</button>
+						<span>{(gettheme === "Light") 
+							? "Dark"
+							: "Light"} Mode</span>
+					</button>
 				</li>
 				<li>
-					<button className="toggleButton" onClick={toggleLanguage}>
+					<button 
+					className="toggleButton" 
+					onClick={toggleLanguage}>
 						<FontAwesomeIcon icon={faLanguage} />
-						{getlanguate}</button>
+						<span>{getlanguate}</span>
+					</button>
 				</li>
 			</ul>
 		</header>

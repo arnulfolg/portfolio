@@ -1,12 +1,39 @@
 .header {
 	@apply 
+			fixed
 			bg-yellow-400
 			text-black
-			p-4
+			transition-all
 
 			dark:bg-black
-			dark:text-white
+			dark:text-white;
+	width: calc(100% - 2.7rem);
+	min-height: 15rem;
 }
+
+.header::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1.4rem;
+	bottom: 100%;
+
+	@apply 
+			bg-yellow-400
+			dark:bg-black
+
+}
+
+.header_small {
+	@apply 
+			min-h-0
+			h-16
+			grid-rows-1
+			grid-cols-2;
+	grid-template-areas: 
+	 	"titles controls" !important;
+}
+
 
 .header {
 	@apply 
@@ -34,7 +61,7 @@
 			text-5xl
 			font-bold
 			text-center
-			leading-relaxed
+			leading-tight
 }
 .header .titles p {
 	@apply 
@@ -42,6 +69,26 @@
 			font-normal
 			text-center
 			italic
+			leading-relaxed
+}
+
+
+.header_small .titles {
+	grid-area: titles;
+	
+	@apply
+			flex
+			items-center
+}
+
+.header_small .titles h1 {
+	@apply 
+			text-3xl
+			p-0
+}
+.header_small .titles p {
+	@apply 
+			hidden
 }
 
 .header .controls {
@@ -52,7 +99,9 @@
 			flex-row
 			flex-nowrap
 			justify-end
+			h-16
 			gap-x-4
+			items-center
 }
 
 .toggleButton {
@@ -71,6 +120,14 @@
 			dark:focus:bg-gray-500
 }
 
+.header_small .toggleButton span{
+	@apply hidden
+}
+
 .toggleButton svg {
 	@apply mr-2
+}
+
+.header_small .toggleButton svg{
+	@apply mr-0
 }

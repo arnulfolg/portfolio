@@ -1,0 +1,34 @@
+.education_section {
+	@apply
+			flex
+			flex-col
+			justify-start
+			content-start
+			items-start
+			gap-y-2
+			mb-12
+			
+			sm:flex-row
+			sm:gap-x-4
+			sm:gap-y-0
+			sm:items-center
+}
+
+.education_section:last-child {
+	@apply mb-0
+}
+
+.education_section img {
+	@apply 
+			w-20
+			h-20
+
+			sm:w-max
+			sm:h-full
+			flex-shrink
+}
+
+.education_section section {
+	@apply
+			flex-grow
+}

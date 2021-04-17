@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function EducationWidget() {
 	return (
@@ -21,7 +22,7 @@ function EducationWidget() {
 				</section>
 			</section>
 			<footer>
-				<a href="#d">See more</a>
+				<Link to="/education">See more</Link>
 			</footer>
 		</section>
 	)

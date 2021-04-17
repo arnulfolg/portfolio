@@ -10,6 +10,7 @@ import Header from './components/header/Header'
 import Home from './components/views/home/Home'
 import Education from './components/views/education/Education'
 import Portfolio from './components/views/portfolio/Portfolio'
+import Project from './components/views/project/Project'
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
               <Switch>
                   <Route path="/education">
                       <Education />
+                  </Route>
+                  <Route path="/portfolio/:project">
+                      <Project />
                   </Route>
                   <Route path="/portfolio">
                       <Portfolio />

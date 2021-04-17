@@ -1,128 +1,115 @@
 .App {
-  @apply
-      text-lg
-      min-h-screen
-			transition-all
-      duration-200
-      max-w-full
-      border-yellow-400
-      border-solid
-      bg-white
-      dark:bg-gray-800
-      dark:border-black;
-  border-width: 1.4rem;
+	@apply text-lg
+                min-h-screen
+                transition-all
+                duration-200
+                max-w-full
+                border-yellow-400
+                border-solid
+                bg-white
+                dark:bg-gray-800
+                dark:border-black;
+	border-width: 1.4rem;
 }
 
 .main {
-  @apply
-      max-w-prose
-      mx-auto
-      px-8
-      py-32
-      mt-60
+	@apply max-w-prose
+                mx-auto
+                px-8
+                py-32
+                mt-60
 
-      text-black
-      dark:text-white
+                text-black
+                dark:text-white;
 }
 
 .section {
-  @apply 
-        mb-32
+	@apply mb-32;
 }
 
 .section_cols-3 {
-  @apply
-        grid
-        sm:grid-cols-3
-        gap-6
+	@apply grid
+          sm:grid-cols-3
+          gap-6
 
-        grid-cols-1
+          grid-cols-1;
 }
 
 .section_cols-2 {
-  @apply
-        grid
-        sm:grid-cols-2
-        gap-6
+	@apply grid
+          sm:grid-cols-2
+          gap-6
 
-        grid-cols-1
+          grid-cols-1;
 }
 
 h1 {
-  @apply
-        text-4xl
-        text-center
-        font-bold
-        leading-relaxed
-        mb-4
+	@apply text-4xl
+          text-center
+          font-bold
+          leading-relaxed
+          mb-4;
 }
 
 h2 {
-  @apply
-        text-3xl
-        text-center
-        font-semibold
-        leading-relaxed
-        mb-4
+	@apply text-3xl
+          text-center
+          font-semibold
+          leading-relaxed
+          mb-4;
 }
 
 h3 {
-  @apply
-        text-xl
-        font-bold
-        leading-relaxed
-        mb-1
+	@apply text-xl
+          font-bold
+          leading-relaxed
+          mb-1;
 }
 
 .section_left h2 {
-  @apply text-left
+	@apply text-left;
 }
 
 ul.list {
-  @apply 
-        list-disc
-        list-inside
+	@apply list-disc
+          list-inside;
 }
 
 .img {
-  @apply max-w-full
+	@apply max-w-full;
 }
 
 .education_card {
-  @apply 
-        bg-transparent
-        rounded-lg
-        p-2
-        text-black
-        text-center
-        transition-all
-        duration-300
-        gap-y-2
-        flex
-        flex-col
-        justify-center
+	@apply bg-transparent
+          rounded-lg
+          p-2
+          text-black
+          text-center
+          transition-all
+          duration-300
+          gap-y-2
+          flex
+          flex-col
+          justify-center
 
-        dark:text-white
+          dark:text-white;
 }
 
-
 .education_card .img {
-  @apply w-full
+	@apply w-full;
 }
 
 .section footer {
-  @apply
-        pt-4
-        text-center
+	@apply pt-4
+          text-center;
 }
 
 a {
-  @apply 
-        text-yellow-400
-        underline
+	@apply text-yellow-400
+          underline
 
-        hover:text-yellow-500
+          hover:text-yellow-500
 
-        dark:text-white
-        dark:hover:text-gray-400
+          dark:text-white
+          dark:hover:text-gray-400;
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import './Education.css'
+import React from "react";
+import "./Education.css";
 
 function Education() {
 	return (
@@ -12,7 +12,7 @@ function Education() {
 					<h2>Education</h2>
 				</header>
 				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt=""/>
+					<img src="https://via.placeholder.com/150" alt="" />
 					<section>
 						<h3>
 							Tec de Monterrey&nbsp;
@@ -27,7 +27,7 @@ function Education() {
 					<h2>Certifications</h2>
 				</header>
 				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt=""/>
+					<img src="https://via.placeholder.com/150" alt="" />
 					<section>
 						<h3>
 							Scrum.org&nbsp;
@@ -37,7 +37,7 @@ function Education() {
 					</section>
 				</section>
 				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt=""/>
+					<img src="https://via.placeholder.com/150" alt="" />
 					<section>
 						<h3>
 							Microsoft Certified Professional&nbsp;
@@ -48,7 +48,7 @@ function Education() {
 				</section>
 			</section>
 		</>
-	)
+	);
 }
 
-export default Education
+export default Education;

@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import PortfolioCard from './../../views/portfolio/PortfolioCard'
 
 function PortfolioWidget() {
 	return (
@@ -7,17 +9,19 @@ function PortfolioWidget() {
 				<h2>Portfolio</h2>
 			</header>
 			<section className="section_cols-2">
-				<section className="portfolio_card">
-					<img className="img" src="https://via.placeholder.com/150" alt=""/>
-					<p className="title">Project Name</p>
-				</section>
-				<section className="portfolio_card">
-					<img className="img" src="https://via.placeholder.com/150" alt=""/>
-					<p className="title">Project Name</p>
-				</section>
+				<PortfolioCard
+					image="https://via.placeholder.com/150"
+					project="Toyota"
+					link="toyota"
+				 />
+				<PortfolioCard
+					image="https://via.placeholder.com/150"
+					project="Profuturo"
+					link="Profuturo"
+				 />
 			</section>
 			<footer>
-				<a href="#d">See all projects</a>
+				<Link to="/portfolio">See all projects</Link>
 			</footer>
 		</section>
 	)

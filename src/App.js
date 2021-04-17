@@ -9,6 +9,7 @@ import './App.css';
 import Header from './components/header/Header'
 import Home from './components/views/home/Home'
 import Education from './components/views/education/Education'
+import Portfolio from './components/views/portfolio/Portfolio'
 
 function App() {
 
@@ -21,11 +22,11 @@ function App() {
                   <Route path="/education">
                       <Education />
                   </Route>
+                  <Route path="/portfolio">
+                      <Portfolio />
+                  </Route>
                   <Route path="/">
                       <Home />
-                  </Route>
-                  <Route path="/projects">
-                      {/* <Home /> */}
                   </Route>
               </Switch>
           </main>

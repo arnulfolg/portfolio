@@ -119,3 +119,10 @@
 .header_small .toggleButton svg {
 	@apply mr-0;
 }
+
+.header .titles a {
+	@apply no-underline
+		text-black
+
+		dark:text-white;
+}

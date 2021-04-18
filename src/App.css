@@ -79,22 +79,6 @@ ul.list {
 	@apply max-w-full;
 }
 
-.education_card {
-	@apply bg-transparent
-          rounded-lg
-          p-2
-          text-black
-          text-center
-          transition-all
-          duration-300
-          gap-y-2
-          flex
-          flex-col
-          justify-center
-
-          dark:text-white;
-}
-
 .education_card .img {
 	@apply w-full;
 }

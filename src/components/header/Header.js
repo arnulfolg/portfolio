@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Header.css";
 
+import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "./../../ThemeContext";
@@ -54,7 +56,9 @@ function Header({ title, tagline }) {
 	return (
 		<header className={`header ${isShrunk ? "header_small" : ""} `}>
 			<section className="titles">
-				<h1>{title}</h1>
+				<Link to="/">
+					<h1>{title}</h1>
+				</Link>
 				<p className="subtitle">{tagline}</p>
 			</section>
 			<ul className="controls">

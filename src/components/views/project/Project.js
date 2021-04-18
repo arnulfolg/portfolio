@@ -1,32 +1,38 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
+
+import { useContentful } from "./../../../Hooks/useContentful";
+import { gql } from "@apollo/client";
+
+const GQL_QUERY = gql`
+	query getCerts($id: String!, $language: String!) {
+		portfolio(id: $id, locale: $language) {
+			sys {
+				id
+			}
+			title
+			content
+			tumbnail {
+				url
+			}
+		}
+	}
+`;
 
 function Project() {
-
 	let { project } = useParams();
+	const [content, ,] = useContentful(GQL_QUERY, project);
 
 	return (
 		<>
 			<header>
-				<h1>Project: {project}</h1>
+				<h1>{content?.portfolio?.title}</h1>
 			</header>
 			<section className="section section_left">
-				<header>
-					<h2>Education</h2>
-				</header>
-				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt=""/>
-					<section>
-						<h3>
-							Tec de Monterrey&nbsp;
-							<time>(2009-2014)</time>
-						</h3>
-						<p>Ingeniería en Tecnología de Información y Comunicaciones</p>
-					</section>
-				</section>
+				<p>{content?.portfolio?.content}</p>
 			</section>
 		</>
-	)
+	);
 }
 
-export default Project
+export default Project;

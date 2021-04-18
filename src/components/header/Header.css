@@ -105,8 +105,7 @@
 }
 
 .dark .toggleButton:focus {
-	outline: 2px dotted white;
-	outline-offset: 2px;
+	@apply outline-white;
 }
 
 .header_small .toggleButton span {

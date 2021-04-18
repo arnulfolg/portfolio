@@ -8,6 +8,8 @@ import Education from "./components/views/education/Education";
 import Portfolio from "./components/views/portfolio/Portfolio";
 import Project from "./components/views/project/Project";
 
+import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";
+
 function App() {
 	return (
 		<Router>
@@ -20,6 +22,7 @@ function App() {
 						</Route>
 						<Route path="/portfolio/:project">
 							<Project />
+							<ResumeWidget />
 						</Route>
 						<Route path="/portfolio">
 							<Portfolio />

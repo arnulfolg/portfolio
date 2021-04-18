@@ -7,6 +7,7 @@ import Home from "./components/views/home/Home";
 import Education from "./components/views/education/Education";
 import Portfolio from "./components/views/portfolio/Portfolio";
 import Project from "./components/views/project/Project";
+import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 
 import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";
 import { useContentful } from "./Hooks/useContentful";
@@ -22,7 +23,7 @@ const GQL_QUERY = gql`
 `;
 
 function App() {
-	const [content, ,] = useContentful(GQL_QUERY);
+	const [content, loading] = useContentful(GQL_QUERY);
 
 	return (
 		<Router>
@@ -31,24 +32,28 @@ function App() {
 					title={content?.cvTitle?.title}
 					tagline={content?.cvTitle?.tagline}
 				/>
-				<main className="main">
-					<Switch>
-						<Route path="/education">
-							<Education />
-						</Route>
-						<Route path="/portfolio/:project">
-							<Project />
-							<ResumeWidget />
-						</Route>
-						<Route path="/portfolio">
-							<Portfolio />
-							<ResumeWidget />
-						</Route>
-						<Route path="/">
-							<Home />
-						</Route>
-					</Switch>
-				</main>
+				{loading ? (
+					<LoadingScreen />
+				) : (
+					<main className="main">
+						<Switch>
+							<Route path="/education">
+								<Education />
+							</Route>
+							<Route path="/portfolio/:project">
+								<Project />
+								<ResumeWidget />
+							</Route>
+							<Route path="/portfolio">
+								<Portfolio />
+								<ResumeWidget />
+							</Route>
+							<Route path="/">
+								<Home />
+							</Route>
+						</Switch>
+					</main>
+				)}
 			</section>
 		</Router>
 	);

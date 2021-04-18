@@ -1,13 +1,14 @@
+import { useContext } from "react";
 import { useQuery } from "@apollo/client";
-
-const language = "en-US";
+import ThemeContext from "./../ThemeContext";
 
 export const useContentful = (QUERY, id) => {
+	const { getlocale } = useContext(ThemeContext);
 	const { loading, error, data } = useQuery(QUERY, {
-		variables: { language, id },
+		variables: { language: getlocale, id },
 	});
+
 	const content = data ? data : [];
-	console.log("content", content);
 
 	return [content, loading, error];
 };

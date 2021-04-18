@@ -10,7 +10,7 @@ function Header({ title, tagline }) {
 
 	const [getlanguate, setlanguate] = useState("Español");
 	const [themeIcon, setthemeIcon] = useState(faMoon);
-	const { gettheme, toggleTheme } = useContext(ThemeContext);
+	const { gettheme, toggleTheme, toggleLocale } = useContext(ThemeContext);
 
 	const [isShrunk, setShrunk] = useState(false);
 	useEffect(() => {
@@ -48,6 +48,7 @@ function Header({ title, tagline }) {
 		getlanguate === "Español"
 			? setlanguate("English")
 			: setlanguate("Español");
+		toggleLocale();
 	};
 
 	return (

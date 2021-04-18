@@ -98,10 +98,15 @@
 			transition-all
 
 			focus:bg-yellow-500
-			focus:outline-white
+			focus:outline-black
 			
 			dark:hover:bg-gray-900
 			dark:focus:bg-gray-500;
+}
+
+.dark .toggleButton:focus {
+	outline: 2px dotted white;
+	outline-offset: 2px;
 }
 
 .header_small .toggleButton span {

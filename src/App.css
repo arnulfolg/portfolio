@@ -111,5 +111,11 @@ a {
           hover:text-yellow-500
 
           dark:text-white
-          dark:hover:text-gray-400;
+          dark:hover:text-gray-400
+	        focus:outline-black;
+}
+
+.dark a:focus {
+	outline: 2px dotted white;
+	outline-offset: 2px;
 }

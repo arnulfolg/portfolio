@@ -45,7 +45,9 @@ function Header() {
 		toggleTheme();
 	};
 	const toggleLanguage = () => {
-		getlanguate === "Español" ? setlanguate("English") : setlanguate("Español");
+		getlanguate === "Español"
+			? setlanguate("English")
+			: setlanguate("Español");
 	};
 
 	return (
@@ -56,13 +58,21 @@ function Header() {
 			</section>
 			<ul className="controls">
 				<li>
-					<button className="toggleButton" onClick={toggleThemeButton}>
+					<button
+						className="toggleButton dark:outline-white"
+						onClick={toggleThemeButton}
+					>
 						<FontAwesomeIcon icon={themeIcon} />
-						<span>{gettheme === "Light" ? "Dark" : "Light"} Mode</span>
+						<span>
+							{gettheme === "Light" ? "Dark" : "Light"} Mode
+						</span>
 					</button>
 				</li>
 				<li>
-					<button className="toggleButton" onClick={toggleLanguage}>
+					<button
+						className="toggleButton dark:outline-white"
+						onClick={toggleLanguage}
+					>
 						<FontAwesomeIcon icon={faLanguage} />
 						<span>{getlanguate}</span>
 					</button>

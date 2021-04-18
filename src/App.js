@@ -26,6 +26,7 @@ function App() {
 						</Route>
 						<Route path="/portfolio">
 							<Portfolio />
+							<ResumeWidget />
 						</Route>
 						<Route path="/">
 							<Home />

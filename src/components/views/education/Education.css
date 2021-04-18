@@ -21,7 +21,7 @@
 	@apply w-20
 			h-20
 
-			sm:w-max
+			sm:w-44
 			sm:h-full
 			flex-shrink;
 }

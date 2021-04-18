@@ -1,7 +1,43 @@
 import React from "react";
 import "./Education.css";
 
+import { useContentful } from "./../../../Hooks/useContentful";
+import { gql } from "@apollo/client";
+
+const GQL_QUERY = gql`
+	query getCerts($language: String!) {
+		degreeCollection(locale: $language) {
+			items {
+				sys {
+					id
+				}
+				title
+				date
+				subtitle
+				image {
+					url
+				}
+			}
+		}
+		educationCollection(locale: $language) {
+			items {
+				sys {
+					id
+				}
+				title
+				date
+				subtitle
+				image {
+					url
+				}
+			}
+		}
+	}
+`;
+
 function Education() {
+	const [content, ,] = useContentful(GQL_QUERY);
+
 	return (
 		<>
 			<header>
@@ -11,41 +47,45 @@ function Education() {
 				<header>
 					<h2>Education</h2>
 				</header>
-				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt="" />
-					<section>
-						<h3>
-							Tec de Monterrey&nbsp;
-							<time>(2009-2014)</time>
-						</h3>
-						<p>Ingeniería en Tecnología de Información y Comunicaciones</p>
-					</section>
-				</section>
+				{content?.degreeCollection?.items.map((degree) => {
+					return (
+						<section
+							key={degree.sys.id}
+							className="education_section"
+						>
+							<img src={degree.image.url} alt="" />
+							<section>
+								<h3>
+									{degree.title}&nbsp;
+									<time>({degree.date})</time>
+								</h3>
+								<p>{degree.subtitle}</p>
+							</section>
+						</section>
+					);
+				})}
 			</section>
 			<section className="section section_left">
 				<header>
 					<h2>Certifications</h2>
 				</header>
-				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt="" />
-					<section>
-						<h3>
-							Scrum.org&nbsp;
-							<time>(2018)</time>
-						</h3>
-						<p>Professional Scrum Master I (PSM I)</p>
-					</section>
-				</section>
-				<section className="education_section">
-					<img src="https://via.placeholder.com/150" alt="" />
-					<section>
-						<h3>
-							Microsoft Certified Professional&nbsp;
-							<time>(2016)</time>
-						</h3>
-						<p>Programming in HTML5 with JavaScript and CSS3</p>
-					</section>
-				</section>
+				{content?.educationCollection?.items.map((cert) => {
+					return (
+						<section
+							key={cert.sys.id}
+							className="education_section"
+						>
+							<img src={cert.image.url} alt="" className="img" />
+							<section>
+								<h3>
+									{cert.title}&nbsp;
+									<time>({cert.date})</time>
+								</h3>
+								<p>{cert.subtitle}</p>
+							</section>
+						</section>
+					);
+				})}
 			</section>
 		</>
 	);

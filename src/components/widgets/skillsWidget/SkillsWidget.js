@@ -1,40 +1,25 @@
-import React from 'react'
+import React from "react";
 
-function Skills() {
+function Skills({ content }) {
 	return (
 		<section className="section">
 			<h2 className="">Skills</h2>
 			<section className="section_cols-3">
-				<section>
-					<h3>UX</h3>
-					<ul className="list">
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-					</ul>
-				</section>
-				<section>
-					<h3>UI</h3>
-					<ul className="list">
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-					</ul>
-				</section>
-				<section>
-					<h3>FrontEnd</h3>
-					<ul className="list">
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-						<li>item</li>
-					</ul>
-				</section>
+				{content?.items.map((skill) => {
+					return (
+						<section key={skill.sys.id}>
+							<h3>{skill.title}</h3>
+							<ul className="list">
+								{skill.skillList.map((skillItem, index) => {
+									return <li key={index}>{skillItem}</li>;
+								})}
+							</ul>
+						</section>
+					);
+				})}
 			</section>
 		</section>
-	)
+	);
 }
 
-export default Skills
+export default Skills;

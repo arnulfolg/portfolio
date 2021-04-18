@@ -1,18 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ApolloProvider } from "@apollo/client";
+import WithTheme from "./WithTheme";
+import { CLIENT } from "./Hooks/apollo";
 
-import WithTheme from './WithTheme'
+// const CLIENT = new ApolloClient({
+// 	uri:
+// 		"https://graphql.contentful.com/content/v1/spaces/ui8qz5ptyq23?access_token =VRsqmQ37waPrLOGCNmmwigcY2mekXcIA9Q-08kSRDkE",
+// 	cache: new InMemoryCache(),
+// });
 
-const AppWithTheme = WithTheme(App)
+const AppWithTheme = WithTheme(App);
 
 ReactDOM.render(
-  <React.StrictMode>
-      <AppWithTheme />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ApolloProvider client={CLIENT}>
+			<AppWithTheme />
+		</ApolloProvider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

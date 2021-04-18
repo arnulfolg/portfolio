@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "./../../ThemeContext";
 
-function Header() {
+function Header({ title, tagline }) {
 	const scrollHeight = 120;
 
 	const [getlanguate, setlanguate] = useState("Español");
@@ -53,8 +53,8 @@ function Header() {
 	return (
 		<header className={`header ${isShrunk ? "header_small" : ""} `}>
 			<section className="titles">
-				<h1>Arnulfo Loredo</h1>
-				<p className="subtitle">Web Designer & Front End Developer</p>
+				<h1>{title}</h1>
+				<p className="subtitle">{tagline}</p>
 			</section>
 			<ul className="controls">
 				<li>

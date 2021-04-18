@@ -1,25 +1,28 @@
-import React, { useState } from 'react'
-import ThemeContext from './ThemeContext'
+import React, { useState } from "react";
+import ThemeContext from "./ThemeContext";
 
-const WithTheme = OriginalComponent => {
-	function NewComponent () {
-
-		const [gettheme, settheme] = useState("Light")
+const WithTheme = (OriginalComponent) => {
+	function NewComponent() {
+		const [gettheme, settheme] = useState("Light");
 
 		const toggleTheme = () => {
-			(gettheme === "Light")? settheme("Dark") : settheme("Light")
-		}
+			gettheme === "Light" ? settheme("Dark") : settheme("Light");
+		};
 
 		return (
-			<ThemeContext.Provider value={{gettheme, toggleTheme}}>
+			<ThemeContext.Provider
+				value={{
+					gettheme,
+					toggleTheme,
+				}}
+			>
 				<section className={gettheme.toLocaleLowerCase()}>
 					<OriginalComponent />
 				</section>
 			</ThemeContext.Provider>
-
-			)
+		);
 	}
-	return NewComponent
-}
+	return NewComponent;
+};
 
-export default WithTheme
+export default WithTheme;

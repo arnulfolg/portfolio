@@ -11,19 +11,10 @@ import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 
 import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";
 import { useContentful } from "./Hooks/useContentful";
-import { gql } from "@apollo/client";
-
-const GQL_QUERY = gql`
-	query getTitles($language: String!) {
-		cvTitle(id: "3Z2C9DB5pyBAxNBkXqyBSz", locale: $language) {
-			title
-			tagline
-		}
-	}
-`;
+import { HEADER_QUERY } from "./graphql/queries";
 
 function App() {
-	const [content, loading] = useContentful(GQL_QUERY);
+	const [content, loading] = useContentful(HEADER_QUERY);
 
 	return (
 		<Router>

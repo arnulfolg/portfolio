@@ -2,41 +2,10 @@ import React from "react";
 import "./Education.css";
 
 import { useContentful } from "./../../../Hooks/useContentful";
-import { gql } from "@apollo/client";
-
-const GQL_QUERY = gql`
-	query getCerts($language: String!) {
-		degreeCollection(locale: $language) {
-			items {
-				sys {
-					id
-				}
-				title
-				date
-				subtitle
-				image {
-					url
-				}
-			}
-		}
-		educationCollection(locale: $language) {
-			items {
-				sys {
-					id
-				}
-				title
-				date
-				subtitle
-				image {
-					url
-				}
-			}
-		}
-	}
-`;
+import { EDUCATION_QUERY } from "./../../../graphql/queries";
 
 function Education() {
-	const [content, ,] = useContentful(GQL_QUERY);
+	const [content, ,] = useContentful(EDUCATION_QUERY);
 
 	return (
 		<>

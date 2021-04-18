@@ -3,26 +3,10 @@ import "./Portfolio.css";
 import PortfolioCard from "./PortfolioCard";
 
 import { useContentful } from "./../../../Hooks/useContentful";
-import { gql } from "@apollo/client";
-
-const GQL_QUERY = gql`
-	query getCerts($language: String!) {
-		portfolioCollection(locale: $language) {
-			items {
-				sys {
-					id
-				}
-				title
-				tumbnail {
-					url
-				}
-			}
-		}
-	}
-`;
+import { PORTFOLIO_QUERY } from "./../../../graphql/queries";
 
 function Portfolio() {
-	const [content, ,] = useContentful(GQL_QUERY);
+	const [content, ,] = useContentful(PORTFOLIO_QUERY);
 
 	return (
 		<>

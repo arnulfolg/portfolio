@@ -2,26 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import { useContentful } from "./../../../Hooks/useContentful";
-import { gql } from "@apollo/client";
-
-const GQL_QUERY = gql`
-	query getCerts($id: String!, $language: String!) {
-		portfolio(id: $id, locale: $language) {
-			sys {
-				id
-			}
-			title
-			content
-			tumbnail {
-				url
-			}
-		}
-	}
-`;
+import { PROJECT_QUERY } from "./../../../graphql/queries";
 
 function Project() {
 	let { project } = useParams();
-	const [content, ,] = useContentful(GQL_QUERY, project);
+	const [content, ,] = useContentful(PROJECT_QUERY, project);
 
 	return (
 		<>

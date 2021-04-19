@@ -109,3 +109,13 @@ export const PROJECT_QUERY = gql`
 		}
 	}
 `;
+
+export const RESUME_QUERY = gql`
+	query getResume($language: String!) {
+		asset(id: "4mH92P2EMhcmAiRzZaqJsG", locale: $language) {
+			title
+			fileName
+			url
+		}
+	}
+`;

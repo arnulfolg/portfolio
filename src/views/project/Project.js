@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { useContentful } from "./../../../Hooks/useContentful";
-import { PROJECT_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "../../Hooks/useContentful";
+import { PROJECT_QUERY } from "../../graphql/queries";
 
 function Project() {
 	let { project } = useParams();

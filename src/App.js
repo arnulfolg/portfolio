@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/header/Header";
-import Home from "./components/views/home/Home";
-import Education from "./components/views/education/Education";
-import Portfolio from "./components/views/portfolio/Portfolio";
-import Project from "./components/views/project/Project";
+import Home from "./views/home/Home";
+import Education from "./views/education/Education";
+import Portfolio from "./views/portfolio/Portfolio";
+import Project from "./views/project/Project";
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
 
 import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";

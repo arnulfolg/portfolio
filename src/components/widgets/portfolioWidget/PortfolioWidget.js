@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PortfolioCard from "./../../views/portfolio/PortfolioCard";
+import PortfolioCard from "./../../../views/portfolio/PortfolioCard";
 
 function PortfolioWidget({ content }) {
 	return (

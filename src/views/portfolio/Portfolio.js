@@ -2,8 +2,8 @@ import React from "react";
 import "./Portfolio.css";
 import PortfolioCard from "./PortfolioCard";
 
-import { useContentful } from "./../../../Hooks/useContentful";
-import { PORTFOLIO_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "./../../Hooks/useContentful";
+import { PORTFOLIO_QUERY } from "./../../graphql/queries";
 
 function Portfolio() {
 	const [content, ,] = useContentful(PORTFOLIO_QUERY);

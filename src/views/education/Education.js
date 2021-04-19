@@ -1,8 +1,8 @@
 import React from "react";
 import "./Education.css";
 
-import { useContentful } from "./../../../Hooks/useContentful";
-import { EDUCATION_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "./../../Hooks/useContentful";
+import { EDUCATION_QUERY } from "./../../graphql/queries";
 
 function Education() {
 	const [content, ,] = useContentful(EDUCATION_QUERY);

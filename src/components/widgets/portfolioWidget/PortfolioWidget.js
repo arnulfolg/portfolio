@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PortfolioCard from "./../../../views/portfolio/PortfolioCard";
 
-function PortfolioWidget({ content }) {
+function PortfolioWidget({ content, titles }) {
 	return (
 		<section className="section">
 			<header>
-				<h2>Portfolio</h2>
+				<h2>{titles?.heading}</h2>
 			</header>
 			<section className="section_cols-2">
 				{content?.items.map((project) => {
@@ -14,7 +14,7 @@ function PortfolioWidget({ content }) {
 						<PortfolioCard
 							key={project.sys.id}
 							image={project.tumbnail.url}
-							project={project.title}
+							project={project.projectName}
 							link={project.sys.id}
 						/>
 					);

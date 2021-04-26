@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function EducationWidget({ content }) {
+function EducationWidget({ content, titles }) {
 	return (
 		<section className="section">
 			<header>
-				<h2>Education and Certifications</h2>
+				<h2>{titles?.heading}</h2>
 			</header>
 			<section className="section_cols-3">
 				{content?.items.map((education, index) => {

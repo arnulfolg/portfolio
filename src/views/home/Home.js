@@ -12,10 +12,22 @@ function Home() {
 
 	return (
 		<>
-			<AboutWidget content={content.aboutMeCollection} />
-			<SkillsWidget content={content.skillsCollection} />
-			<PortfolioWidget content={content.portfolioCollection} />
-			<EducationWidget content={content.educationCollection} />
+			<AboutWidget
+				content={content.aboutMeCollection}
+				titles={content.about}
+			/>
+			<SkillsWidget
+				content={content.skillsCollection}
+				titles={content.skills}
+			/>
+			<PortfolioWidget
+				content={content.portfolioCollection}
+				titles={content.portfolio}
+			/>
+			<EducationWidget
+				content={content.educationCollection}
+				titles={content.education}
+			/>
 			<ResumeWidget />
 		</>
 	);

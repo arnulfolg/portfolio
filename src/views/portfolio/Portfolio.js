@@ -11,7 +11,7 @@ function Portfolio() {
 	return (
 		<>
 			<header>
-				<h1>Portfolio</h1>
+				<h1>{content?.portfolio?.heading}</h1>
 			</header>
 			<section className="section section_left">
 				<section className="section_cols-2">
@@ -20,7 +20,7 @@ function Portfolio() {
 							<PortfolioCard
 								key={project.sys.id}
 								image={project.tumbnail.url}
-								project={project.title}
+								project={project.projectName}
 								link={project.sys.id}
 							/>
 						);

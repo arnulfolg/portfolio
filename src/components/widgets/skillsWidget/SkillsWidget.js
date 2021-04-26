@@ -1,9 +1,9 @@
 import React from "react";
 
-function Skills({ content }) {
+function Skills({ content, titles }) {
 	return (
 		<section className="section">
-			<h2 className="">Skills</h2>
+			<h2 className="">{titles?.heading}</h2>
 			<section className="section_cols-3">
 				{content?.items.map((skill) => {
 					return (

@@ -1,9 +1,9 @@
 import React from "react";
 
-function About({ content }) {
+function About({ content, titles }) {
 	return (
 		<section className="section">
-			<h2>{content?.items[0].title}</h2>
+			<h2>{titles?.heading}</h2>
 			<p>{content?.items[0].description}</p>
 		</section>
 	);

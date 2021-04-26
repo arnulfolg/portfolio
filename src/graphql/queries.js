@@ -2,11 +2,17 @@ import { gql } from "@apollo/client";
 
 export const HOME_QUERY = gql`
 	query GetHomeInfo($language: String!) {
+		about: headings(id: "5lkl1wDaWl4pg5vAAKFAnt", locale: $language) {
+			heading
+		}
 		aboutMeCollection(locale: $language) {
 			items {
 				title
 				description
 			}
+		}
+		skills: headings(id: "69tmMvtPx8twaEgeU3Vjf4", locale: $language) {
+			heading
 		}
 		skillsCollection {
 			items {
@@ -17,16 +23,22 @@ export const HOME_QUERY = gql`
 				skillList
 			}
 		}
+		portfolio: headings(id: "4KfXOh5UAb8vCN9YiQvaI7", locale: $language) {
+			heading
+		}
 		portfolioCollection(locale: $language, limit: 2) {
 			items {
 				sys {
 					id
 				}
-				title
+				projectName
 				tumbnail {
 					url
 				}
 			}
+		}
+		education: headings(id: "BJft3IxP7iqujQ53J1aYl", locale: $language) {
+			heading
 		}
 		educationCollection(locale: $language, limit: 3) {
 			items {
@@ -86,11 +98,14 @@ export const PORTFOLIO_QUERY = gql`
 				sys {
 					id
 				}
-				title
+				projectName
 				tumbnail {
 					url
 				}
 			}
+		}
+		portfolio: headings(id: "4KfXOh5UAb8vCN9YiQvaI7", locale: $language) {
+			heading
 		}
 	}
 `;
@@ -101,11 +116,62 @@ export const PROJECT_QUERY = gql`
 			sys {
 				id
 			}
-			title
-			content
-			tumbnail {
+			projectName
+			client
+			role
+			time
+			techStack
+			summary
+			summaryPicture {
+				title
+				description
 				url
 			}
+			description
+			iaTitle
+			iaPicture {
+				title
+				description
+				url
+			}
+			galleryCollection {
+				items {
+					sys {
+						id
+					}
+					title
+					description
+					url
+				}
+			}
+			takeaway
+		}
+		summary: headings(id: "4gobIU7yJwntG0shciWa86", locale: $language) {
+			heading
+		}
+		client: headings(id: "2tBpCLYICvhVtHmzoiKznc", locale: $language) {
+			heading
+		}
+		role: headings(id: "4Ypv2e1l5f7bJaryApIaSN", locale: $language) {
+			heading
+		}
+		ia: headings(id: "4HYfNTYg82pPI2UKRzrBzC", locale: $language) {
+			heading
+		}
+		gallery: headings(id: "4Q9KJGEyR4nSO8Ykbaddyu", locale: $language) {
+			heading
+		}
+		time: headings(id: "2rAQXMfN9S7oyvjWudhBdn", locale: $language) {
+			heading
+		}
+		techStack: headings(id: "wW5czNJAbbfqncgYxjycT", locale: $language) {
+			heading
+		}
+		description: headings(id: "12SZ4gwxrJQDNffQJ5r2wC", locale: $language) {
+			heading
+		}
+		takeaway: headings(id: "WAteUbv19cosqF7OJLMCK", locale: $language) {
+			heading
 		}
 	}
 `;

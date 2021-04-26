@@ -45,3 +45,33 @@
 	@apply py-3
             text-xl;
 }
+
+.gallery {
+	@apply grid
+            grid-cols-2
+            md:grid-cols-3
+            gap-2;
+}
+
+.summary {
+	@apply grid
+            grid-cols-1
+            md:grid-cols-3
+            gap-4;
+}
+
+.summary_info {
+	@apply text-center;
+}
+
+.summary_info__left {
+	@apply md:justify-self-start;
+}
+
+.summary_info__right {
+	@apply md:justify-self-end;
+}
+
+.summary_title {
+	@apply font-bold;
+}

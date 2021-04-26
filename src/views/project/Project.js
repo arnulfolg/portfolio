@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import Gallery from "react-photo-gallery";
+import Lightbox from "./../../components/lightbox/Lightbox";
 
 import { useContentful } from "../../Hooks/useContentful";
 import { PROJECT_QUERY } from "../../graphql/queries";
 
 function Project() {
 	let { project } = useParams();
-	const [content, ,] = useContentful(PROJECT_QUERY, project);
+	const [content, loading] = useContentful(PROJECT_QUERY, project);
+
+	const photos = content?.portfolio?.galleryCollection?.items.map((item) => {
+		return { ...item, width: item.width, height: item.height };
+	});
+
+	const [currentImage, setCurrentImage] = useState("");
+	const [viewerIsOpen, setViewerIsOpen] = useState(false);
+
+	const openLightbox = useCallback((event, { photo, index }) => {
+		setCurrentImage(photo.src);
+		setViewerIsOpen(true);
+	}, []);
+
+	const closeLightbox = () => {
+		setCurrentImage("");
+		setViewerIsOpen(false);
+	};
 
 	return (
 		<>
@@ -37,11 +56,29 @@ function Project() {
 			<section className="section section_left">
 				<h2>{content?.summary?.heading}</h2>
 				<ReactMarkdown children={content?.portfolio?.summary} />
-				<img src={content?.portfolio?.summaryPicture.url} alt="" />
+				{!loading ? (
+					<Gallery
+						photos={[
+							{
+								...content?.portfolio?.summaryPicture,
+							},
+						]}
+						onClick={openLightbox}
+					/>
+				) : null}
 			</section>
 			<section className="section section_left">
 				<h2>{content?.ia?.heading}</h2>
-				<img src={content?.portfolio?.iaPicture.url} alt="" />
+				{!loading ? (
+					<Gallery
+						photos={[
+							{
+								...content?.portfolio?.iaPicture,
+							},
+						]}
+						onClick={openLightbox}
+					/>
+				) : null}
 			</section>
 			<section className="section section_left">
 				<h2>{content?.description?.heading}</h2>
@@ -49,19 +86,9 @@ function Project() {
 			</section>
 			<section className="section section_left">
 				<h2>{content?.gallery?.heading}</h2>
-				<picture className="gallery">
-					{content?.portfolio?.galleryCollection?.items?.map(
-						(picture) => {
-							return (
-								<img
-									key={picture.sys.id}
-									src={picture.url}
-									alt=""
-								/>
-							);
-						}
-					)}
-				</picture>
+				{!loading ? (
+					<Gallery photos={photos} onClick={openLightbox} />
+				) : null}
 			</section>
 			<footer>
 				<section className="section section_left">
@@ -69,6 +96,14 @@ function Project() {
 					<ReactMarkdown children={content?.portfolio?.takeaway} />
 				</section>
 			</footer>
+
+			{viewerIsOpen ? (
+				<Lightbox
+					open={viewerIsOpen}
+					close={closeLightbox}
+					image={currentImage}
+				/>
+			) : null}
 		</>
 	);
 }

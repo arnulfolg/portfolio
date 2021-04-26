@@ -1,0 +1,41 @@
+.lightbox {
+	@apply fixed 
+	inset-0
+	bg-transparent
+	overflow-hidden
+	flex
+	content-center
+	justify-center
+	items-center
+	w-screen
+	h-screen
+	p-8
+	z-0;
+}
+
+.lightbox .background {
+	@apply inset-0
+	fixed
+	bg-white
+	opacity-95
+	z-10
+	
+	dark:bg-black
+	dark:bg-opacity-90;
+}
+
+.lightbox picture {
+	@apply max-h-full
+	opacity-100
+	z-20;
+}
+
+.lightbox svg {
+	@apply absolute
+	top-7
+	right-7
+	text-black
+	z-30
+	
+	dark:text-white;
+}

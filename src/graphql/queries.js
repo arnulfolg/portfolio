@@ -125,13 +125,13 @@ export const PROJECT_QUERY = gql`
 			summaryPicture {
 				title
 				description
-				url
+				src: url
 			}
 			description
 			iaPicture {
 				title
 				description
-				url
+				src: url
 			}
 			galleryCollection {
 				items {
@@ -140,7 +140,9 @@ export const PROJECT_QUERY = gql`
 					}
 					title
 					description
-					url
+					src: url
+					width
+					height
 				}
 			}
 			takeaway

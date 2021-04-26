@@ -128,7 +128,6 @@ export const PROJECT_QUERY = gql`
 				url
 			}
 			description
-			iaTitle
 			iaPicture {
 				title
 				description

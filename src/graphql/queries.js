@@ -126,12 +126,16 @@ export const PROJECT_QUERY = gql`
 				title
 				description
 				src: url
+				width
+				height
 			}
 			description
 			iaPicture {
 				title
 				description
 				src: url
+				width
+				height
 			}
 			galleryCollection {
 				items {

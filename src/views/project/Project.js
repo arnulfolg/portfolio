@@ -3,107 +3,120 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import Gallery from "react-photo-gallery";
 import Lightbox from "./../../components/lightbox/Lightbox";
+import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
 
 import { useContentful } from "../../Hooks/useContentful";
 import { PROJECT_QUERY } from "../../graphql/queries";
 
 function Project() {
 	let { project } = useParams();
-	const [content, loading] = useContentful(PROJECT_QUERY, project);
-
-	const photos = content?.portfolio?.galleryCollection?.items.map((item) => {
-		return { ...item, width: item.width, height: item.height };
-	});
+	const [
+		{
+			portfolio,
+			summary,
+			client,
+			role,
+			ia,
+			gallery,
+			time,
+			description,
+			takeaway,
+		},
+		loading,
+	] = useContentful(PROJECT_QUERY, project);
 
 	const [currentImage, setCurrentImage] = useState("");
-	const [viewerIsOpen, setViewerIsOpen] = useState(false);
+	const [isLightboxOpen, setLightboxOpen] = useState(false);
 
-	const openLightbox = useCallback((event, { photo, index }) => {
+	const openLightbox = useCallback((e, { photo }) => {
 		setCurrentImage(photo.src);
-		setViewerIsOpen(true);
+		setLightboxOpen(true);
 	}, []);
 
 	const closeLightbox = () => {
 		setCurrentImage("");
-		setViewerIsOpen(false);
+		setLightboxOpen(false);
 	};
 
 	return (
 		<>
-			<header className="">
-				<h1>{content?.portfolio?.projectName}</h1>
-				<section className="section summary">
-					<section className="summary_info summary_info__left">
-						<p className="summary_title">
-							{content?.client?.heading}
-						</p>
-						<p>{content?.portfolio?.client}</p>
+			{loading ? (
+				<LoadingScreen />
+			) : (
+				<article>
+					<header className="">
+						<h1>{portfolio.projectName}</h1>
+						<section className="section summary">
+							<section className="summary_info summary_info__left">
+								<p className="summary_title">
+									{client.heading}
+								</p>
+								<p>{portfolio.client}</p>
+							</section>
+							<section className="summary_info">
+								<p className="summary_title">{role.heading}</p>
+								<p>{portfolio.role}</p>
+							</section>
+							<section className="summary_info summary_info__right">
+								<p className="summary_title">{time.heading}</p>
+								<p>{portfolio.time}</p>
+							</section>
+						</section>
+					</header>
+					<section className="section section_left">
+						<h2>{summary.heading}</h2>
+						<ReactMarkdown children={portfolio.summary} />
+						{!loading ? (
+							<Gallery
+								photos={[{ ...portfolio.summaryPicture }]}
+								onClick={openLightbox}
+							/>
+						) : null}
 					</section>
-					<section className="summary_info">
-						<p className="summary_title">
-							{content?.role?.heading}
-						</p>
-						<p>{content?.portfolio?.role}</p>
+					<section className="section section_left">
+						<h2>{ia.heading}</h2>
+						{!loading ? (
+							<Gallery
+								photos={[{ ...portfolio.iaPicture }]}
+								onClick={openLightbox}
+							/>
+						) : null}
 					</section>
-					<section className="summary_info summary_info__right">
-						<p className="summary_title">
-							{content?.time?.heading}
-						</p>
-						<p>{content?.portfolio?.time}</p>
+					<section className="section section_left">
+						<h2>{description.heading}</h2>
+						<ReactMarkdown children={portfolio.description} />
 					</section>
-				</section>
-			</header>
-			<section className="section section_left">
-				<h2>{content?.summary?.heading}</h2>
-				<ReactMarkdown children={content?.portfolio?.summary} />
-				{!loading ? (
-					<Gallery
-						photos={[
-							{
-								...content?.portfolio?.summaryPicture,
-							},
-						]}
-						onClick={openLightbox}
-					/>
-				) : null}
-			</section>
-			<section className="section section_left">
-				<h2>{content?.ia?.heading}</h2>
-				{!loading ? (
-					<Gallery
-						photos={[
-							{
-								...content?.portfolio?.iaPicture,
-							},
-						]}
-						onClick={openLightbox}
-					/>
-				) : null}
-			</section>
-			<section className="section section_left">
-				<h2>{content?.description?.heading}</h2>
-				<ReactMarkdown children={content?.portfolio?.description} />
-			</section>
-			<section className="section section_left">
-				<h2>{content?.gallery?.heading}</h2>
-				{!loading ? (
-					<Gallery photos={photos} onClick={openLightbox} />
-				) : null}
-			</section>
-			<footer>
-				<section className="section section_left">
-					<h2>{content?.takeaway?.heading}</h2>
-					<ReactMarkdown children={content?.portfolio?.takeaway} />
-				</section>
-			</footer>
+					<section className="section section_left">
+						<h2>{gallery.heading}</h2>
+						{!loading ? (
+							<Gallery
+								photos={portfolio.galleryCollection.items.map(
+									(photo) => {
+										return {
+											...photo,
+										};
+									}
+								)}
+								onClick={openLightbox}
+							/>
+						) : null}
+					</section>
+					<footer>
+						<section className="section section_left">
+							<h2>{takeaway.heading}</h2>
+							<ReactMarkdown children={portfolio.takeaway} />
+						</section>
+					</footer>
 
-			{viewerIsOpen ? (
-				<Lightbox
-					open={viewerIsOpen}
-					close={closeLightbox}
-					image={currentImage}
-				/>
-			) : null}
+					{isLightboxOpen ? (
+						<Lightbox
+							open={isLightboxOpen}
+							close={closeLightbox}
+							image={currentImage}
+						/>
+					) : null}
+				</article>
+			)}
 		</>
 	);
 }

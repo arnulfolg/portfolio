@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Education.css";
 
 import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
@@ -9,6 +9,10 @@ import { EDUCATION_QUERY } from "./../../graphql/queries";
 
 function Education() {
 	const [content, loading] = useContentful(EDUCATION_QUERY);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>

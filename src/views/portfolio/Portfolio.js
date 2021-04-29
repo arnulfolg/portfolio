@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Portfolio.css";
 import PortfolioCard from "./PortfolioCard";
 import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
@@ -8,6 +8,10 @@ import { PORTFOLIO_QUERY } from "./../../graphql/queries";
 
 function Portfolio() {
 	const [content, loading] = useContentful(PORTFOLIO_QUERY);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>

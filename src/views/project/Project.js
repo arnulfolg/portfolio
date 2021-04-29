@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import Gallery from "react-photo-gallery";
@@ -24,6 +24,10 @@ function Project() {
 		},
 		loading,
 	] = useContentful(PROJECT_QUERY, project);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	const [currentImage, setCurrentImage] = useState("");
 	const [isLightboxOpen, setLightboxOpen] = useState(false);

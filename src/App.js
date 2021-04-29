@@ -24,7 +24,7 @@ function App() {
 					tagline={content?.cvTitle?.tagline}
 				/>
 				{loading ? (
-					<LoadingScreen />
+					<LoadingScreen screen={true} />
 				) : (
 					<main className="main">
 						<Switch>

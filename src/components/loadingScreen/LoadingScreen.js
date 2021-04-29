@@ -3,11 +3,17 @@ import "./LoadingScreen.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-function LoadingScreen() {
+function LoadingScreen({ screen }) {
 	return (
-		<section className="loading_screen">
-			<FontAwesomeIcon icon={faSpinner} spin />
-		</section>
+		<>
+			{screen ? (
+				<section className="loading_screen">
+					<FontAwesomeIcon icon={faSpinner} spin />
+				</section>
+			) : (
+				<section className="loading_component"></section>
+			)}
+		</>
 	);
 }
 

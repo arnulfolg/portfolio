@@ -13,3 +13,17 @@
 			dark:bg-black
 			dark:text-white;
 }
+
+.loading_component {
+	@apply bg-gradient-to-br 
+			from-gray-200 
+			to-gray-400
+			animate-pulse
+			backdrop-opacity-40
+			mb-16
+			w-full
+			h-60
+			rounded-lg
+			
+			dark:bg-black;
+}

@@ -19,31 +19,33 @@ function App() {
 	return (
 		<Router>
 			<section className="App">
-				<Header
-					title={content?.cvTitle?.title}
-					tagline={content?.cvTitle?.tagline}
-				/>
 				{loading ? (
 					<LoadingScreen screen={true} />
 				) : (
-					<main className="main">
-						<Switch>
-							<Route path="/education">
-								<Education />
-							</Route>
-							<Route path="/portfolio/:project">
-								<Project />
-								<ResumeWidget />
-							</Route>
-							<Route path="/portfolio">
-								<Portfolio />
-								<ResumeWidget />
-							</Route>
-							<Route path="/">
-								<Home />
-							</Route>
-						</Switch>
-					</main>
+					<>
+						<Header
+							title={content.cvTitle.title}
+							tagline={content.cvTitle.tagline}
+						/>
+						<main className="main">
+							<Switch>
+								<Route path="/education">
+									<Education />
+								</Route>
+								<Route path="/portfolio/:project">
+									<Project />
+									<ResumeWidget />
+								</Route>
+								<Route path="/portfolio">
+									<Portfolio />
+									<ResumeWidget />
+								</Route>
+								<Route path="/">
+									<Home />
+								</Route>
+							</Switch>
+						</main>
+					</>
 				)}
 			</section>
 		</Router>

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function EducationWidget({ content, titles }) {
+function EducationWidget({ content, titles, link }) {
 	return (
 		<section className="section">
 			<header>
-				<h2>{titles?.heading}</h2>
+				<h2>{titles.heading}</h2>
 			</header>
 			<section className="section_cols-3">
-				{content?.items.map((education, index) => {
+				{content.items.map((education, index) => {
 					return (
 						<section key={index} className="education_card">
 							<img
@@ -22,7 +22,7 @@ function EducationWidget({ content, titles }) {
 				})}
 			</section>
 			<footer>
-				<Link to="/education">See more</Link>
+				<Link to="/education">{link.heading}</Link>
 			</footer>
 		</section>
 	);

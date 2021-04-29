@@ -26,6 +26,12 @@ export const HOME_QUERY = gql`
 		portfolio: headings(id: "4KfXOh5UAb8vCN9YiQvaI7", locale: $language) {
 			heading
 		}
+		portfolioLink: headings(
+			id: "4672gexNeDtvV2QiQYGBQT"
+			locale: $language
+		) {
+			heading
+		}
 		portfolioCollection(locale: $language, limit: 2) {
 			items {
 				sys {
@@ -38,6 +44,12 @@ export const HOME_QUERY = gql`
 			}
 		}
 		education: headings(id: "BJft3IxP7iqujQ53J1aYl", locale: $language) {
+			heading
+		}
+		educationLink: headings(
+			id: "4bfcgFHvZ8MdeIywpTXR5f"
+			locale: $language
+		) {
 			heading
 		}
 		educationCollection(locale: $language, limit: 3) {
@@ -62,6 +74,15 @@ export const HEADER_QUERY = gql`
 
 export const EDUCATION_QUERY = gql`
 	query getCerts($language: String!) {
+		educationPage: headings(
+			id: "BJft3IxP7iqujQ53J1aYl"
+			locale: $language
+		) {
+			heading
+		}
+		education: headings(id: "5Xlj25BEabB30fdd42rYts", locale: $language) {
+			heading
+		}
 		degreeCollection(locale: $language) {
 			items {
 				sys {
@@ -74,6 +95,12 @@ export const EDUCATION_QUERY = gql`
 					url
 				}
 			}
+		}
+		certification: headings(
+			id: "4ZOClGf1qddWC2MZWH5d2g"
+			locale: $language
+		) {
+			heading
 		}
 		educationCollection(locale: $language) {
 			items {

@@ -21,11 +21,11 @@ function Education() {
 			) : (
 				<>
 					<header>
-						<h1>Education and Certifications</h1>
+						<h1>{content.educationPage.heading}</h1>
 					</header>
 					<section className="section section_left">
 						<header>
-							<h2>Education</h2>
+							<h2>{content.education.heading}</h2>
 						</header>
 						{content?.degreeCollection?.items.map((degree) => {
 							return (
@@ -38,7 +38,7 @@ function Education() {
 					</section>
 					<section className="section section_left">
 						<header>
-							<h2>Certifications</h2>
+							<h2>{content.certification.heading}</h2>
 						</header>
 						{content?.educationCollection?.items.map((cert) => {
 							return (

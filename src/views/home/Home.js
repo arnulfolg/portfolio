@@ -28,10 +28,12 @@ function Home() {
 					<PortfolioWidget
 						content={content.portfolioCollection}
 						titles={content.portfolio}
+						link={content.portfolioLink}
 					/>
 					<EducationWidget
 						content={content.educationCollection}
 						titles={content.education}
+						link={content.educationLink}
 					/>
 				</>
 			)}

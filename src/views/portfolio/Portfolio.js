@@ -20,11 +20,11 @@ function Portfolio() {
 			) : (
 				<>
 					<header>
-						<h1>{content?.portfolio?.heading}</h1>
+						<h1>{content.portfolio.heading}</h1>
 					</header>
 					<section className="section section_left">
 						<section className="section_cols-2">
-							{content?.portfolioCollection?.items.map(
+							{content.portfolioCollection.items.map(
 								(project) => {
 									return (
 										<PortfolioCard

@@ -1,5 +1,6 @@
 .header {
 	@apply fixed
+			z-50
 			bg-yellow-400
 			text-black
 			transition-all

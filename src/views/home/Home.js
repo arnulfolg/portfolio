@@ -14,36 +14,26 @@ function Home() {
 	return (
 		<>
 			{loading ? (
-				<LoadingScreen screen={false} />
+				<LoadingScreen screen={false} minHeight="3" times={4} />
 			) : (
-				<AboutWidget
-					content={content.aboutMeCollection}
-					titles={content.about}
-				/>
-			)}
-			{loading ? (
-				<LoadingScreen screen={false} />
-			) : (
-				<SkillsWidget
-					content={content.skillsCollection}
-					titles={content.skills}
-				/>
-			)}
-			{loading ? (
-				<LoadingScreen screen={false} />
-			) : (
-				<PortfolioWidget
-					content={content.portfolioCollection}
-					titles={content.portfolio}
-				/>
-			)}
-			{loading ? (
-				<LoadingScreen screen={false} />
-			) : (
-				<EducationWidget
-					content={content.educationCollection}
-					titles={content.education}
-				/>
+				<>
+					<AboutWidget
+						content={content.aboutMeCollection}
+						titles={content.about}
+					/>
+					<SkillsWidget
+						content={content.skillsCollection}
+						titles={content.skills}
+					/>
+					<PortfolioWidget
+						content={content.portfolioCollection}
+						titles={content.portfolio}
+					/>
+					<EducationWidget
+						content={content.educationCollection}
+						titles={content.education}
+					/>
+				</>
 			)}
 			<ResumeWidget />
 		</>

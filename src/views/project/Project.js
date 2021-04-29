@@ -41,7 +41,7 @@ function Project() {
 	return (
 		<>
 			{loading ? (
-				<LoadingScreen />
+				<LoadingScreen screen={false} minHeight="3" times={5} />
 			) : (
 				<article>
 					<header className="">

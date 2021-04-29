@@ -3,7 +3,7 @@ import "./LoadingScreen.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-function LoadingScreen({ screen }) {
+function LoadingScreen({ screen, minHeight, times }) {
 	return (
 		<>
 			{screen ? (
@@ -11,7 +11,17 @@ function LoadingScreen({ screen }) {
 					<FontAwesomeIcon icon={faSpinner} spin />
 				</section>
 			) : (
-				<section className="loading_component"></section>
+				[...Array(times)].map((i, index) => {
+					return (
+						<section
+							key={index}
+							className={`loading_component ${
+								minHeight ? "loading_component__small" : ""
+							}`}
+							style={{ minHeight: minHeight }}
+						></section>
+					);
+				})
 			)}
 		</>
 	);

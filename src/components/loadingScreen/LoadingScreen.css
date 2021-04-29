@@ -16,14 +16,17 @@
 
 .loading_component {
 	@apply bg-gradient-to-br 
-			from-gray-200 
-			to-gray-400
+			from-yellow-100 
+			to-yellow-200
 			animate-pulse
 			backdrop-opacity-40
 			mb-16
 			w-full
 			h-60
 			rounded-lg
+			z-0
 			
+			dark:from-gray-300 
+			dark:to-gray-400
 			dark:bg-black;
 }

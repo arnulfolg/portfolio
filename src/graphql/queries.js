@@ -236,3 +236,14 @@ export const THEME_QUERY = gql`
 		}
 	}
 `;
+
+export const FOOTER_QUERY = gql`
+	query getFooterTexts($language: String!) {
+		copyright: headings(id: "6LUAZri2OCvJyO0scmN133", locale: $language) {
+			heading
+		}
+		letstalk: headings(id: "2JKBOifyd5Ab8br6vKYH6m", locale: $language) {
+			heading
+		}
+	}
+`;

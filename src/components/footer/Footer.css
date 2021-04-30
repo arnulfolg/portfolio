@@ -1,0 +1,32 @@
+.footer {
+	@apply bg-yellow-400
+			text-black
+			transition-all
+			p-8
+
+			dark:bg-black
+			dark:text-white;
+}
+
+.social_links {
+	@apply flex
+		gap-4
+		justify-center;
+}
+
+.footer header {
+	@apply container
+	mx-auto
+		mb-8
+		text-center;
+}
+
+.footer aside {
+	@apply container
+		mx-auto
+		text-center;
+}
+
+.footer aside .social_links a {
+	@apply hover:text-white;
+}

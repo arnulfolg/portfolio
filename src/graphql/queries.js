@@ -225,3 +225,14 @@ export const LOCALE_QUERY = gql`
 		}
 	}
 `;
+
+export const THEME_QUERY = gql`
+	query getLocaleTranslation($language: String!) {
+		dark: headings(id: "rTtf5I7pfOcYV5iYDdpUR", locale: $language) {
+			heading
+		}
+		light: headings(id: "79Dm3OEJSUvlbDonKZs8RN", locale: $language) {
+			heading
+		}
+	}
+`;

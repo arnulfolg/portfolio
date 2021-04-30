@@ -3,11 +3,11 @@ import ThemeContext from "./ThemeContext";
 
 const WithTheme = (OriginalComponent) => {
 	function NewComponent() {
-		const [gettheme, settheme] = useState("Light");
+		const [gettheme, settheme] = useState("light");
 		const [getlocale, setlocale] = useState("en-US");
 
 		const toggleTheme = () => {
-			gettheme === "Light" ? settheme("Dark") : settheme("Light");
+			gettheme === "light" ? settheme("dark") : settheme("light");
 		};
 
 		const toggleLocale = () => {
@@ -23,7 +23,7 @@ const WithTheme = (OriginalComponent) => {
 					toggleLocale,
 				}}
 			>
-				<section className={gettheme.toLocaleLowerCase()}>
+				<section className={gettheme}>
 					<OriginalComponent />
 				</section>
 			</ThemeContext.Provider>

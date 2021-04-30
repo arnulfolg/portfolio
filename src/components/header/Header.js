@@ -1,18 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import ThemeContext from "./../../ThemeContext";
+import DarkModeButton from "./DarkModeButton";
+import ToggleLanguageButton from "./ToggleLanguageButton";
 
 function Header({ title, tagline }) {
 	const scrollHeight = 120;
-
-	const [getlanguate, setlanguate] = useState("Español");
-	const [themeIcon, setthemeIcon] = useState(faMoon);
-	const { gettheme, toggleTheme, toggleLocale } = useContext(ThemeContext);
 
 	const [isShrunk, setShrunk] = useState(false);
 	useEffect(() => {
@@ -42,17 +37,6 @@ function Header({ title, tagline }) {
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
-	const toggleThemeButton = () => {
-		themeIcon === faSun ? setthemeIcon(faMoon) : setthemeIcon(faSun);
-		toggleTheme();
-	};
-	const toggleLanguage = () => {
-		getlanguate === "Español"
-			? setlanguate("English")
-			: setlanguate("Español");
-		toggleLocale();
-	};
-
 	return (
 		<header className={`header ${isShrunk ? "header_small" : ""} `}>
 			<section className="titles">
@@ -63,24 +47,10 @@ function Header({ title, tagline }) {
 			</section>
 			<ul className="controls">
 				<li>
-					<button
-						className="toggleButton dark:outline-white"
-						onClick={toggleThemeButton}
-					>
-						<FontAwesomeIcon icon={themeIcon} />
-						<span>
-							{gettheme === "Light" ? "Dark" : "Light"} Mode
-						</span>
-					</button>
+					<DarkModeButton />
 				</li>
 				<li>
-					<button
-						className="toggleButton dark:outline-white"
-						onClick={toggleLanguage}
-					>
-						<FontAwesomeIcon icon={faLanguage} />
-						<span>{getlanguate}</span>
-					</button>
+					<ToggleLanguageButton />
 				</li>
 			</ul>
 		</header>

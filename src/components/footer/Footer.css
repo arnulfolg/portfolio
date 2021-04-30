@@ -16,15 +16,15 @@
 
 .footer header {
 	@apply container
-	mx-auto
-		mb-8
-		text-center;
+			mx-auto
+			mb-8
+			text-center;
 }
 
 .footer aside {
 	@apply container
-		mx-auto
-		text-center;
+			mx-auto
+			text-center;
 }
 
 .footer aside .social_links a {

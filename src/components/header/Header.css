@@ -24,9 +24,9 @@
 
 .header_small {
 	@apply min-h-0
-			h-16
 			grid-rows-1
 			grid-cols-2;
+	min-height: 2rem;
 	grid-template-areas: "titles controls" !important;
 }
 
@@ -34,7 +34,8 @@
 	@apply grid
 			auto-rows-max
 			gap-y-2.5
-			grid-cols-1;
+			grid-cols-1
+			items-center;
 
 	grid-template-areas:
 		"controls"
@@ -47,6 +48,15 @@
 	@apply py-8
 			content-center
 			justify-self-center;
+}
+.header.header_small .titles {
+	@apply ml-2
+			py-2
+			content-start
+			justify-self-start;
+}
+.header.header_small .titles h1 {
+	@apply mb-0;
 }
 
 .header .titles h1 {

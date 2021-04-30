@@ -1,0 +1,105 @@
+.App {
+	@apply text-lg
+                min-h-screen
+                transition-all
+                duration-200
+                max-w-full
+                border-yellow-400
+                border-solid
+                bg-white
+                dark:bg-gray-800
+                dark:border-black;
+	border-width: 1.4rem;
+}
+
+.main {
+	@apply max-w-prose
+                mx-auto
+                px-8
+                py-32
+                mt-60
+
+                text-black
+                dark:text-white;
+}
+
+.section {
+	@apply mb-32;
+}
+
+.section_cols-3 {
+	@apply grid
+          sm:grid-cols-3
+          gap-6
+
+          grid-cols-1;
+}
+
+.section_cols-2 {
+	@apply grid
+          sm:grid-cols-2
+          gap-6
+
+          grid-cols-1;
+}
+
+h1 {
+	@apply text-4xl
+          text-center
+          font-bold
+          leading-relaxed
+          mb-4;
+}
+
+h2 {
+	@apply text-3xl
+          text-center
+          font-semibold
+          leading-relaxed
+          mb-4;
+}
+
+h3 {
+	@apply text-xl
+          font-bold
+          leading-relaxed
+          mb-1;
+}
+
+.section_left h2 {
+	@apply text-left;
+}
+
+ul.list {
+	@apply list-disc
+          list-inside;
+}
+
+.img {
+	@apply max-w-full;
+}
+
+.education_card .img {
+	@apply w-full;
+}
+
+.section footer {
+	@apply pt-4
+          text-center;
+}
+
+a {
+	@apply text-black
+          underline
+
+          hover:text-yellow-500
+
+          dark:text-white
+          dark:hover:text-gray-300
+	        focus:outline-black;
+}
+
+.dark a:focus {
+	outline: 2px dotted white;
+	outline-offset: 2px;
+}

@@ -1,0 +1,77 @@
+.portfolio_card {
+	@apply bg-gray-200
+                rounded-md
+                text-black
+                text-center
+                flex
+                flex-row
+                content-start
+                items-center
+                gap-x-4
+                no-underline  
+
+                sm:flex-col
+                sm:justify-center
+                sm:items-stretch
+                sm:gap-x-0
+
+                hover:bg-yellow-500
+                hover:text-white
+                
+                focus:bg-yellow-500
+                focus:outline-black
+
+                dark:focus:bg-gray-600
+
+                dark:bg-black
+                dark:hover:text-white
+                dark:hover:bg-gray-600;
+}
+
+.dark .portfolio_card:focus {
+	@apply outline-white;
+}
+
+.portfolio_card .img {
+	@apply rounded-l-md
+           w-3/6
+           sm:w-full
+            sm:max-w-full
+            sm:rounded-l-none
+            sm:rounded-t-md;
+}
+
+.portfolio_card .title {
+	@apply py-3
+            text-xl;
+}
+
+.gallery {
+	@apply grid
+            grid-cols-2
+            md:grid-cols-3
+            gap-2;
+}
+
+.summary {
+	@apply grid
+            grid-cols-1
+            md:grid-cols-3
+            gap-4;
+}
+
+.summary_info {
+	@apply text-center;
+}
+
+.summary_info__left {
+	@apply md:justify-self-start;
+}
+
+.summary_info__right {
+	@apply md:justify-self-end;
+}
+
+.summary_title {
+	@apply font-bold;
+}

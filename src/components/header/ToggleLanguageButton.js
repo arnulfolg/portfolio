@@ -1,27 +1,24 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faLanguage } from "@fortawesome/free-solid-svg-icons";
 import ThemeContext from "./../../ThemeContext";
 
+import { useContentful } from "./../../Hooks/useContentful";
+import { LOCALE_QUERY } from "./../../graphql/queries";
+
 function ToggleLanguageButton() {
-	const { gettheme, toggleTheme, toggleLocale } = useContext(ThemeContext);
-
-	const [getlanguate, setlanguate] = useState("Español");
-
-	const toggleLanguage = () => {
-		getlanguate === "Español"
-			? setlanguate("English")
-			: setlanguate("Español");
-		toggleLocale();
-	};
+	const { toggleLocale } = useContext(ThemeContext);
+	const [{ locale }, loading] = useContentful(LOCALE_QUERY);
 
 	return (
 		<button
+			disabled={loading}
 			className="toggleButton dark:outline-white"
-			onClick={toggleLanguage}
+			onClick={toggleLocale}
 		>
 			<FontAwesomeIcon icon={faLanguage} />
-			<span>{getlanguate}</span>
+			<span>{locale?.heading}</span>
 		</button>
 	);
 }

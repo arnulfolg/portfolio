@@ -217,3 +217,11 @@ export const RESUME_QUERY = gql`
 		}
 	}
 `;
+
+export const LOCALE_QUERY = gql`
+	query getLocaleTranslation($language: String!) {
+		locale: headings(id: "ryPXmqgWyGKZKVNpevKXS", locale: $language) {
+			heading
+		}
+	}
+`;

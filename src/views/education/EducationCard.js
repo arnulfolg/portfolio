@@ -3,7 +3,11 @@ import React from "react";
 function EducationCard({ info }) {
 	return (
 		<section className="education_section">
-			<img src={info.image.url} alt="" loading="lazy" />
+			<img
+				src={info.image.url + "?fl=progressive&w=200"}
+				alt=""
+				loading="lazy"
+			/>
 			<section>
 				<h3>
 					{info.title}&nbsp;

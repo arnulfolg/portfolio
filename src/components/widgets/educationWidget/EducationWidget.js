@@ -13,7 +13,10 @@ function EducationWidget({ content, titles, link }) {
 						<section key={index} className="education_card">
 							<img
 								className="img"
-								src={education.image.url}
+								src={
+									education.image.url +
+									"?fl=progressive&w=200"
+								}
 								alt=""
 							/>
 							<p className="title">{education.subtitle}</p>

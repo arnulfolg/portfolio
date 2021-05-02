@@ -28,5 +28,10 @@
 }
 
 .footer aside .social_links a {
-	@apply hover:text-white;
+	@apply hover:text-white
+		px-1
+		rounded-sm
+		focus:text-white
+		dark:focus:text-gray-400
+		dark:hover:text-gray-400;
 }

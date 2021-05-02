@@ -75,3 +75,11 @@
 .summary_title {
 	@apply font-bold;
 }
+
+.react-photo-gallery--gallery img:hover {
+	@apply outline-black;
+}
+
+.dark .react-photo-gallery--gallery img:hover {
+	@apply outline-white;
+}

@@ -3,12 +3,17 @@ import ThemeContext from "./ThemeContext";
 
 const WithTheme = (OriginalComponent) => {
 	function NewComponent() {
+		const setDocumentLanguage = (lang) => {
+			document.documentElement.lang = lang;
+		};
+
 		const [gettheme, settheme] = useState(() => {
 			const theme = window.localStorage.getItem("theme") || "light";
 			return theme;
 		});
 		const [getlocale, setlocale] = useState(() => {
 			const locale = window.localStorage.getItem("locale") || "en-US";
+			setDocumentLanguage(locale);
 			return locale;
 		});
 
@@ -28,10 +33,12 @@ const WithTheme = (OriginalComponent) => {
 			getlocale === "en-US"
 				? setlocale(() => {
 						window.localStorage.setItem("locale", "es-419");
+						setDocumentLanguage("es-419");
 						return "es-419";
 				  })
 				: setlocale(() => {
 						window.localStorage.setItem("locale", "en-US");
+						setDocumentLanguage("en-US");
 						return "en-US";
 				  });
 		};

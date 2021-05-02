@@ -13,7 +13,7 @@ import { useContentful } from "./../../Hooks/useContentful";
 import { FOOTER_QUERY } from "./../../graphql/queries";
 
 function Footer() {
-	const [{ copyright, letstalk }, loading] = useContentful(FOOTER_QUERY);
+	const [{ copyright, letstalk }] = useContentful(FOOTER_QUERY);
 
 	return (
 		<footer className="footer">

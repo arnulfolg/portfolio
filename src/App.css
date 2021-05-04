@@ -103,3 +103,11 @@ a {
 	outline: 2px dotted white;
 	outline-offset: 2px;
 }
+
+:is(p, li, span) {
+	@apply font-light;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+	@apply font-serif;
+}

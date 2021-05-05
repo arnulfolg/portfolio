@@ -1,3 +1,7 @@
+body {
+	@apply bg-yellow-400;
+}
+
 .App {
 	@apply text-lg
                 min-h-screen
@@ -7,7 +11,7 @@
                 border-yellow-400
                 border-solid
                 bg-white
-                dark:bg-gray-800
+                dark:bg-gray-900
                 dark:border-black;
 	border-width: 1.4rem;
 }
@@ -105,9 +109,10 @@ a {
 }
 
 :is(p, li, span) {
-	@apply font-light;
+	@apply font-ibm
+    font-light;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
-	@apply font-serif;
+	@apply font-rubik;
 }

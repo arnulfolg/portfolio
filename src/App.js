@@ -9,6 +9,7 @@ import Education from "./views/education/Education";
 import Portfolio from "./views/portfolio/Portfolio";
 import Project from "./views/project/Project";
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
+import NotFound from "./components/notFound/NotFound";
 
 import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";
 import { useContentful } from "./Hooks/useContentful";
@@ -30,6 +31,9 @@ function App() {
 						/>
 						<main className="main">
 							<Switch>
+								<Route exact path="/">
+									<Home />
+								</Route>
 								<Route path="/education">
 									<Education />
 								</Route>
@@ -41,8 +45,8 @@ function App() {
 									<Portfolio />
 									<ResumeWidget />
 								</Route>
-								<Route path="/">
-									<Home />
+								<Route path="*">
+									<NotFound />
 								</Route>
 							</Switch>
 						</main>

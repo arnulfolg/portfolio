@@ -4,13 +4,6 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				// yellow: {
-				// 	100: "#FFE15C",
-				// 	200: "#FFDC42",
-				// 	300: "#FFD829",
-				// 	400: "#FFD30F",
-				// 	500: "#F0C400",
-				// },
 				yellow: {
 					100: "#FFEFA8",
 					200: "#FFE675",

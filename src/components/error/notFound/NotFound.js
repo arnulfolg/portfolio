@@ -2,24 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NotFound.css";
 
-function NotFound() {
-	return (
-		<section className="section not-found">
-			<section className="error">
-				<h2>404</h2>
-				<h3>Page Not Found</h3>
-			</section>
+import { NOTFOUND_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "./../../../Hooks/useContentful";
 
-			<img
-				className="img"
-				src="https://images.ctfassets.net/ui8qz5ptyq23/7E5vcWPcLqKURPPf7wbxk8/f1b902fb59a89315fc02429fa4c985bc/droids.jpg"
-				alt=""
-			/>
-			<p>This is not the page you are looking for</p>
-			<Link className="button" to="/">
-				Go Home
-			</Link>
-		</section>
+import LoadingScreen from "./../../loadingScreen/LoadingScreen";
+function NotFound() {
+	const [{ error }, loading] = useContentful(NOTFOUND_QUERY);
+
+	return (
+		<>
+			{loading ? (
+				<LoadingScreen />
+			) : (
+				<section className="section not-found">
+					<section className="error">
+						<h2>{error.errorNumber}</h2>
+						<h3>{error.title}</h3>
+					</section>
+
+					<img className="img" src={error.image.src} alt="" />
+					<p>{error.description}</p>
+					<Link className="button" to="/">
+						{error.buttonText}
+					</Link>
+				</section>
+			)}
+		</>
 	);
 }
 

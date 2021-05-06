@@ -2,23 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ErrorPage.css";
 
+import { ERRORPAGE_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "./../../../Hooks/useContentful";
+
+import LoadingScreen from "./../../loadingScreen/LoadingScreen";
+
 function ErrorPage() {
+	const [{ error }, loading] = useContentful(ERRORPAGE_QUERY);
+
 	return (
-		<section className="section error_page">
-			<h2>Project Not Found</h2>
-			<p>
-				It seems the project you are looking for doesn't exist or it was
-				removed by our Cat Admin
-			</p>
-			<img
-				className="img"
-				src="https://images.ctfassets.net/ui8qz5ptyq23/H5uum9ifZ80EIVFAxgX1j/660429f28f88934f7811c45e5029b453/599.jpg"
-				alt=""
-			/>
-			<Link className="button" to="/portfolio">
-				Go to Projects
-			</Link>
-		</section>
+		<>
+			{loading ? (
+				<LoadingScreen />
+			) : (
+				<section className="section error_page">
+					<h2>{error.title}</h2>
+					<p>{error.description}</p>
+					<img className="img" src={error.image.src} alt="" />
+					<Link className="button" to="/portfolio">
+						{error.buttonText}
+					</Link>
+				</section>
+			)}
+		</>
 	);
 }
 

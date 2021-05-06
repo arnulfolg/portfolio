@@ -247,3 +247,31 @@ export const FOOTER_QUERY = gql`
 		}
 	}
 `;
+
+export const NOTFOUND_QUERY = gql`
+	query get404Page($language: String!) {
+		error: errorPage(id: "g0mCasqWlBmsHxWKMShAI", locale: $language) {
+			title
+			description
+			image {
+				src: url
+			}
+			errorNumber
+			buttonText
+		}
+	}
+`;
+
+export const ERRORPAGE_QUERY = gql`
+	query getErrorPage($language: String!) {
+		error: errorPage(id: "6fFagohF3JlUyKVZ7Mdz7E", locale: $language) {
+			title
+			description
+			image {
+				src: url
+			}
+			errorNumber
+			buttonText
+		}
+	}
+`;

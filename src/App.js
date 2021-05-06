@@ -9,7 +9,7 @@ import Education from "./views/education/Education";
 import Portfolio from "./views/portfolio/Portfolio";
 import Project from "./views/project/Project";
 import LoadingScreen from "./components/loadingScreen/LoadingScreen";
-import NotFound from "./components/notFound/NotFound";
+import NotFound from "./components/error/notFound/NotFound";
 
 import ResumeWidget from "./components/widgets/resumeWidget/ResumeWidget";
 import { useContentful } from "./Hooks/useContentful";

@@ -6,6 +6,7 @@ import { NOTFOUND_QUERY } from "./../../../graphql/queries";
 import { useContentful } from "./../../../Hooks/useContentful";
 
 import LoadingScreen from "./../../loadingScreen/LoadingScreen";
+
 function NotFound() {
 	const [{ error }, loading] = useContentful(NOTFOUND_QUERY);
 

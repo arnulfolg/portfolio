@@ -15,14 +15,14 @@
 
 .not-found h2 {
 	@apply text-4xl
-	font-black;
+			font-black;
 }
 
 .not-found .error :is(h2, h3) {
 	@apply mb-0;
 }
 
-.not-found .button {
+:is(.not-found, .error_page) .button {
 	@apply bg-yellow-400
 			no-underline
 			px-4

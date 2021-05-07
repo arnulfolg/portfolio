@@ -1,0 +1,16 @@
+.error_page {
+	@apply min-h-full
+			flex
+			flex-col
+			items-center
+			gap-4;
+}
+
+.error_page h2 {
+	@apply text-4xl
+			font-black;
+}
+
+.error_page h2 {
+	@apply mb-0;
+}

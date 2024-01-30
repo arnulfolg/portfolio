@@ -1,13 +1,21 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import Gallery from "react-photo-gallery";
-import Lightbox from "./../../components/lightbox/Lightbox";
-import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
+import Lightbox from "../../components/lightbox/Lightbox";
+import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 import ErrorPage from "../../components/error/errorPage/ErrorPage";
 
 import { useContentful } from "../../Hooks/useContentful";
 import { PROJECT_QUERY } from "../../graphql/queries";
+
+interface PhotoInterface {
+	description: string;
+	height: number;
+	src: string;
+	title: string;
+	width: number;
+}
 
 function Project() {
 	let { project } = useParams();
@@ -33,7 +41,8 @@ function Project() {
 	const [currentImage, setCurrentImage] = useState("");
 	const [isLightboxOpen, setLightboxOpen] = useState(false);
 
-	const openLightbox = useCallback((e, { photo }) => {
+	//@ts-ignore
+	const openLightbox = useCallback((e: any, { photo }: any) => {
 		setCurrentImage(photo.src);
 		setLightboxOpen(true);
 	}, []);
@@ -111,7 +120,7 @@ function Project() {
 									{!loading ? (
 										<Gallery
 											photos={portfolio.galleryCollection.items.map(
-												(photo) => {
+												(photo: PhotoInterface) => {
 													return {
 														...photo,
 													};

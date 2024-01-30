@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/header/Header";
@@ -19,7 +18,7 @@ function App() {
 	const [content, loading] = useContentful(HEADER_QUERY);
 
 	return (
-		<Router>
+		<BrowserRouter>
 			<section className="App">
 				{loading ? (
 					<LoadingScreen screen={true} />
@@ -30,31 +29,38 @@ function App() {
 							tagline={content.cvTitle.tagline}
 						/>
 						<main className="main">
-							<Switch>
-								<Route exact path="/">
-									<Home />
-								</Route>
-								<Route path="/education">
-									<Education />
-								</Route>
-								<Route path="/portfolio/:project">
-									<Project />
-									<ResumeWidget />
-								</Route>
-								<Route path="/portfolio">
-									<Portfolio />
-									<ResumeWidget />
-								</Route>
-								<Route path="*">
-									<NotFound />
-								</Route>
-							</Switch>
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route
+									path="/education"
+									element={<Education />}
+								/>
+								<Route
+									path="/portfolio/:project"
+									element={
+										<>
+											<Project />
+											<ResumeWidget />
+										</>
+									}
+								/>
+								<Route
+									path="/portfolio"
+									element={
+										<>
+											<Portfolio />
+											<ResumeWidget />
+										</>
+									}
+								/>
+								<Route path="*" element={<NotFound />} />
+							</Routes>
 						</main>
 						<Footer />
 					</>
 				)}
 			</section>
-		</Router>
+		</BrowserRouter>
 	);
 }
 

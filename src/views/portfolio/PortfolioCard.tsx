@@ -1,7 +1,12 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function PortfolioCard({ image, project, link }) {
+interface PortfolioCardInterface {
+	image: string;
+	project: string;
+	link: string;
+}
+
+function PortfolioCard({ image, project, link }: PortfolioCardInterface) {
 	return (
 		<Link className="portfolio_card" to={`/portfolio/${link}`}>
 			<img className="img" src={image} alt="" loading="lazy" />

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState, FC } from "react";
 import ThemeContext from "./ThemeContext";
 
-const WithTheme = (OriginalComponent) => {
+const WithTheme = (OriginalComponent: FC) => {
 	function NewComponent() {
-		const setDocumentLanguage = (lang) => {
+		const setDocumentLanguage = (lang: string) => {
 			document.documentElement.lang = lang;
 		};
 

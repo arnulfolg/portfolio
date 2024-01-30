@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./ErrorPage.css";
 
-import { ERRORPAGE_QUERY } from "./../../../graphql/queries";
-import { useContentful } from "./../../../Hooks/useContentful";
+import { ERRORPAGE_QUERY } from "../../../graphql/queries";
+import { useContentful } from "../../../Hooks/useContentful";
 
-import LoadingScreen from "./../../loadingScreen/LoadingScreen";
+import LoadingScreen from "../../loadingScreen/LoadingScreen";
 
 function ErrorPage() {
 	const [{ error }, loading] = useContentful(ERRORPAGE_QUERY);

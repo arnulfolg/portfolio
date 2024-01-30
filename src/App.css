@@ -109,8 +109,7 @@ a {
 }
 
 :is(p, li, span) {
-	@apply font-ibm
-    font-light;
+	@apply font-ibm font-light;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {

@@ -1,7 +1,23 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-function EducationWidget({ content, titles, link }) {
+interface EdicationWidgetInterface {
+	content: {
+		items: {
+			image: {
+				url: string;
+			}
+			subtitle: string;
+		}[]
+	}
+	titles: {
+		heading: string;
+	}
+	link: {
+		heading: string;
+	}
+}
+
+function EducationWidget({ content, titles, link }: EdicationWidgetInterface) {
 	return (
 		<section className="section">
 			<header>

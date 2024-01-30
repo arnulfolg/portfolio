@@ -1,8 +1,27 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import PortfolioCard from "./../../../views/portfolio/PortfolioCard";
+import PortfolioCard from "../../../views/portfolio/PortfolioCard";
 
-function PortfolioWidget({ content, titles, link }) {
+interface PortfolioWidgetInterface {
+	content: {
+		items: {
+			tumbnail: {
+				url: string;
+			}
+			sys: {
+				id: string;
+			}
+			projectName: string;
+		}[]
+	}
+	titles: {
+		heading: string;
+	}
+	link: {
+		heading: string;
+	}
+}
+
+function PortfolioWidget({ content, titles, link }: PortfolioWidgetInterface) {
 	return (
 		<section className="section">
 			<header>

@@ -1,10 +1,20 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./Portfolio.css";
 import PortfolioCard from "./PortfolioCard";
-import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
+import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 
-import { useContentful } from "./../../Hooks/useContentful";
-import { PORTFOLIO_QUERY } from "./../../graphql/queries";
+import { useContentful } from "../../Hooks/useContentful";
+import { PORTFOLIO_QUERY } from "../../graphql/queries";
+
+interface ProjectInterface {
+	sys: {
+		id: string;
+	}
+	tumbnail: {
+		url: string;
+	}
+	projectName: string;
+}
 
 function Portfolio() {
 	const [content, loading] = useContentful(PORTFOLIO_QUERY);
@@ -25,7 +35,7 @@ function Portfolio() {
 					<section className="section section_left">
 						<section className="section_cols-2">
 							{content.portfolioCollection.items.map(
-								(project) => {
+								(project: ProjectInterface) => {
 									return (
 										<PortfolioCard
 											key={project.sys.id}

@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLanguage } from "@fortawesome/free-solid-svg-icons";
-import ThemeContext from "./../../ThemeContext";
+import ThemeContext from "../../ThemeContext";
 
-import { useContentful } from "./../../Hooks/useContentful";
-import { LOCALE_QUERY } from "./../../graphql/queries";
+import { useContentful } from "../../Hooks/useContentful";
+import { LOCALE_QUERY } from "../../graphql/queries";
 
 function ToggleLanguageButton() {
 	const { toggleLocale } = useContext(ThemeContext);

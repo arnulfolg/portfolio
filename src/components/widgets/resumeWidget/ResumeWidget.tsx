@@ -1,10 +1,9 @@
-import React from "react";
 import "./ResumeWidget.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
-import { useContentful } from "./../../../Hooks/useContentful";
-import { RESUME_QUERY } from "./../../../graphql/queries";
+import { useContentful } from "../../../Hooks/useContentful";
+import { RESUME_QUERY } from "../../../graphql/queries";
 
 function ResumeWidget() {
 	const [content, loading] = useContentful(RESUME_QUERY);

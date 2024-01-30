@@ -1,6 +1,25 @@
-import React from "react";
+interface SkillsInterface {
+	content: {
+		items: {
+			tumbnail: {
+				url: string;
+			}
+			sys: {
+				id: string;
+			}
+			title: string;
+			skillList: string[]
+		}[]
+	}
+	titles: {
+		heading: string;
+	}
+	link?: {
+		heading: string;
+	}
+}
 
-function Skills({ content, titles }) {
+function Skills({ content, titles }: SkillsInterface) {
 	return (
 		<section className="section">
 			<h2 className="">{titles?.heading}</h2>

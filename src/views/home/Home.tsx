@@ -1,12 +1,11 @@
-import React from "react";
-import AboutWidget from "./../../components/widgets/aboutWidget/AboutWidget";
-import SkillsWidget from "./../../components/widgets/skillsWidget/SkillsWidget";
-import PortfolioWidget from "./../../components/widgets/portfolioWidget/PortfolioWidget";
-import EducationWidget from "./../../components/widgets/educationWidget/EducationWidget";
-import ResumeWidget from "./../../components/widgets/resumeWidget/ResumeWidget";
-import LoadingScreen from "./../../components/loadingScreen/LoadingScreen";
-import { useContentful } from "./../../Hooks/useContentful";
-import { HOME_QUERY } from "./../../graphql/queries";
+import AboutWidget from "../../components/widgets/aboutWidget/AboutWidget";
+import SkillsWidget from "../../components/widgets/skillsWidget/SkillsWidget";
+import PortfolioWidget from "../../components/widgets/portfolioWidget/PortfolioWidget";
+import EducationWidget from "../../components/widgets/educationWidget/EducationWidget";
+import ResumeWidget from "../../components/widgets/resumeWidget/ResumeWidget";
+import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
+import { useContentful } from "../../Hooks/useContentful";
+import { HOME_QUERY } from "../../graphql/queries";
 
 function Home() {
 	const [content, loading] = useContentful(HOME_QUERY);

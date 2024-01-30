@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,8 +8,8 @@ import {
 	faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
-import { useContentful } from "./../../Hooks/useContentful";
-import { FOOTER_QUERY } from "./../../graphql/queries";
+import { useContentful } from "../../Hooks/useContentful";
+import { FOOTER_QUERY } from "../../graphql/queries";
 
 function Footer() {
 	const [{ copyright, letstalk }] = useContentful(FOOTER_QUERY);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 import DarkModeButton from "./DarkModeButton";
 import ToggleLanguageButton from "./ToggleLanguageButton";
 
-function Header({ title, tagline }) {
+interface HeaderInterface {
+	title: string;
+	tagline: string;
+}
+
+function Header({ title, tagline }: HeaderInterface) {
 	const scrollHeight = 120;
 
 	const [isShrunk, setShrunk] = useState(false);

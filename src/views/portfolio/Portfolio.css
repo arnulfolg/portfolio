@@ -83,3 +83,67 @@
 .dark .react-photo-gallery--gallery img:hover {
 	@apply outline-white;
 }
+
+@keyframes image-effect {
+	from {
+		opacity: 0.75;
+		scale: 0.75;
+	}
+	to {
+		opacity: 1;
+		scale: 1;
+		transform: none;
+	}
+}
+
+.react-photo-gallery--gallery img:nth-child(1) {
+	transform: translateX(2.5rem) translateY(0.3rem);
+}
+.react-photo-gallery--gallery img:nth-child(2) {
+	transform: translateX(2.5rem) translateY(0.6rem);
+}
+.react-photo-gallery--gallery img:nth-child(3) {
+	transform: translateX(2.5rem) translateY(0.9rem);
+}
+.react-photo-gallery--gallery img:nth-child(4) {
+	transform: translateX(2.5rem) translateY(1.2rem);
+}
+.react-photo-gallery--gallery img:nth-child(5) {
+	transform: translateX(2.5rem) translateY(1.5rem);
+}
+.react-photo-gallery--gallery img:nth-child(6) {
+	transform: translateX(2.5rem) translateY(1.8rem);
+}
+.react-photo-gallery--gallery img:nth-child(7) {
+	transform: translateX(2.5rem) translateY(2.1rem);
+}
+.react-photo-gallery--gallery img:nth-child(8) {
+	transform: translateX(2.5rem) translateY(2.4rem);
+}
+.react-photo-gallery--gallery img:nth-child(9) {
+	transform: translateX(2.5rem) translateY(2.7rem);
+}
+.react-photo-gallery--gallery img:nth-child(10) {
+	transform: translateX(2.5rem) translateY(3rem);
+}
+.react-photo-gallery--gallery img:nth-child(11) {
+	transform: translateX(2.5rem) translateY(3.3rem);
+}
+.react-photo-gallery--gallery img:nth-child(12) {
+	transform: translateX(2.5rem) translateY(3.6rem);
+}
+.react-photo-gallery--gallery img:nth-child(13) {
+	transform: translateX(2.5rem) translateY(3.9rem);
+}
+.react-photo-gallery--gallery img:nth-child(14) {
+	transform: translateX(2.5rem) translateY(4.2rem);
+}
+.react-photo-gallery--gallery img:nth-child(15) {
+	transform: translateX(2.5rem) translateY(4.5rem);
+}
+
+.react-photo-gallery--gallery img {
+	animation: image-effect linear forwards;
+	animation-timeline: view(block);
+	animation-range: entry-crossing entry;
+}

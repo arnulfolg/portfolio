@@ -19,7 +19,7 @@ function App() {
 
 	return (
 		<BrowserRouter>
-			<section className="App">
+			<main className="App">
 				{loading ? (
 					<LoadingScreen screen={true} />
 				) : (
@@ -59,7 +59,7 @@ function App() {
 						<Footer />
 					</>
 				)}
-			</section>
+			</main>
 		</BrowserRouter>
 	);
 }

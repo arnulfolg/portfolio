@@ -6,9 +6,14 @@ import ResumeWidget from "../../components/widgets/resumeWidget/ResumeWidget";
 import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 import { useContentful } from "../../Hooks/useContentful";
 import { HOME_QUERY } from "../../graphql/queries";
+import { useEffect } from "react";
 
 function Home() {
 	const [content, loading] = useContentful(HOME_QUERY);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<>

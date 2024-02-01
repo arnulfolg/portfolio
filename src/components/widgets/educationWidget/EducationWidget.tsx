@@ -5,23 +5,23 @@ interface EdicationWidgetInterface {
 		items: {
 			image: {
 				url: string;
-			}
+			};
 			subtitle: string;
-		}[]
-	}
+		}[];
+	};
 	titles: {
 		heading: string;
-	}
+	};
 	link: {
 		heading: string;
-	}
+	};
 }
 
 function EducationWidget({ content, titles, link }: EdicationWidgetInterface) {
 	return (
 		<section className="section">
 			<header>
-				<h2>{titles.heading}</h2>
+				<h2 className="animate-titles">{titles.heading}</h2>
 			</header>
 			<section className="section_cols-3">
 				{content.items.map((education, index) => {

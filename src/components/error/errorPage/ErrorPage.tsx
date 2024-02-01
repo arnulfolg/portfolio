@@ -15,7 +15,7 @@ function ErrorPage() {
 				<LoadingScreen />
 			) : (
 				<section className="section error_page">
-					<h2>{error.title}</h2>
+					<h2 className="animate-titles">{error.title}</h2>
 					<p>{error.description}</p>
 					<img className="img" src={error.image.src} alt="" />
 					<Link className="button" to="/portfolio">

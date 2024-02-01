@@ -9,10 +9,10 @@ import { PORTFOLIO_QUERY } from "../../graphql/queries";
 interface ProjectInterface {
 	sys: {
 		id: string;
-	}
+	};
 	tumbnail: {
 		url: string;
-	}
+	};
 	projectName: string;
 }
 

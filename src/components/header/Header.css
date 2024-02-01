@@ -12,14 +12,6 @@
 	height: 15rem;
 }
 
-@keyframes header-shrink {
-	to {
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-areas: "titles controls";
-		height: 5rem;
-	}
-}
-
 .header {
 	@apply grid
 			auto-rows-max
@@ -59,29 +51,6 @@
 	animation: header-subtitle linear forwards;
 	animation-timeline: scroll();
 	animation-range: 0 150px;
-}
-.header .subtitle {
-	animation: header-subtitle linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0 150px;
-}
-
-@keyframes header-titles {
-	to {
-		@apply py-0 justify-self-start;
-	}
-}
-
-@keyframes header-heading {
-	to {
-		@apply text-2xl m-0;
-	}
-}
-
-@keyframes header-subtitle {
-	to {
-		@apply text-xs;
-	}
 }
 
 .header_compact {
@@ -182,4 +151,41 @@
 		text-black
 
 		dark:text-white;
+}
+
+@media (prefers-reduced-motion) {
+	.header,
+	.header .titles,
+	.header .titles h1,
+	.header .subtitle {
+		animation: unset;
+	}
+}
+
+@supports (animation-range: 0 350px) {
+	@keyframes header-shrink {
+		to {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas: "titles controls";
+			height: 5rem;
+		}
+	}
+
+	@keyframes header-titles {
+		to {
+			@apply py-0 justify-self-start;
+		}
+	}
+
+	@keyframes header-heading {
+		to {
+			@apply text-2xl m-0;
+		}
+	}
+
+	@keyframes header-subtitle {
+		to {
+			@apply text-xs;
+		}
+	}
 }

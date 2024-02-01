@@ -34,15 +34,23 @@
 	animation-range: 0 150px;
 }
 
-@keyframes download-resume-effect {
-	from {
-		opacity: 0.75;
-		scale: 0.75;
-		transform: translateX(5rem) skew(10deg, 10deg);
+@media (prefers-reduced-motion) {
+	.download_resume {
+		animation: unset;
 	}
-	to {
-		opacity: 1;
-		scale: 1;
-		transform: none;
+}
+
+@supports (animation-range: 0 150px) {
+	@keyframes download-resume-effect {
+		from {
+			opacity: 0.75;
+			scale: 0.75;
+			transform: translateX(5rem) skew(10deg, 10deg);
+		}
+		to {
+			opacity: 1;
+			scale: 1;
+			transform: none;
+		}
 	}
 }

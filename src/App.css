@@ -116,19 +116,27 @@ a {
 	@apply font-rubik;
 }
 
-@keyframes headings {
-	from {
-		opacity: 0.5;
-		scale: 0.75;
-	}
-	to {
-		opacity: 1;
-		scale: 1;
-	}
-}
-
 .animate-titles {
 	animation: headings linear both;
 	animation-timeline: view(block);
 	animation-range: contain 0% contain 20%;
+}
+
+@media (prefers-reduced-motion) {
+	.animate-titles {
+		animation: unset;
+	}
+}
+
+@supports (animation-range: contain 0% contain 20%) {
+	@keyframes headings {
+		from {
+			opacity: 0.5;
+			scale: 0.75;
+		}
+		to {
+			opacity: 1;
+			scale: 1;
+		}
+	}
 }

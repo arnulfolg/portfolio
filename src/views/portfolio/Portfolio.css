@@ -84,18 +84,6 @@
 	@apply outline-white;
 }
 
-@keyframes image-effect {
-	from {
-		opacity: 0.75;
-		scale: 0.75;
-	}
-	to {
-		opacity: 1;
-		scale: 1;
-		transform: none;
-	}
-}
-
 .react-photo-gallery--gallery img:nth-child(1) {
 	transform: translateX(2.5rem) translateY(0.3rem);
 }
@@ -146,4 +134,25 @@
 	animation: image-effect linear forwards;
 	animation-timeline: view(block);
 	animation-range: entry-crossing entry;
+}
+
+@media (prefers-reduced-motion) {
+	.section .react-photo-gallery--gallery img {
+		animation: unset;
+		transform: none;
+	}
+}
+
+@supports (animation-range: entry-crossing entry) {
+	@keyframes image-effect {
+		from {
+			opacity: 0.75;
+			scale: 0.75;
+		}
+		to {
+			opacity: 1;
+			scale: 1;
+			transform: none;
+		}
+	}
 }

@@ -28,4 +28,29 @@
 			dark:hover:text-white
 			dark:focus:bg-black
 			dark:focus:text-white;
+
+	animation: download-resume-effect linear forwards;
+	animation-timeline: view();
+	animation-range: 0 150px;
+}
+
+@media (prefers-reduced-motion) {
+	.download_resume {
+		animation: unset;
+	}
+}
+
+@supports (animation-range: 0 150px) {
+	@keyframes download-resume-effect {
+		from {
+			opacity: 0.75;
+			scale: 0.75;
+			transform: translateX(5rem) skew(10deg, 10deg);
+		}
+		to {
+			opacity: 1;
+			scale: 1;
+			transform: none;
+		}
+	}
 }

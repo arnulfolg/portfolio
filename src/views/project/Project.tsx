@@ -85,7 +85,9 @@ function Project() {
 									</section>
 								</header>
 								<section className="section section_left">
-									<h2>{summary.heading}</h2>
+									<h2 className="animate-titles">
+										{summary.heading}
+									</h2>
 									<ReactMarkdown
 										children={portfolio.summary}
 									/>
@@ -99,7 +101,9 @@ function Project() {
 									) : null}
 								</section>
 								<section className="section section_left">
-									<h2>{ia.heading}</h2>
+									<h2 className="animate-titles">
+										{ia.heading}
+									</h2>
 									{!loading ? (
 										<Gallery
 											photos={[
@@ -110,13 +114,17 @@ function Project() {
 									) : null}
 								</section>
 								<section className="section section_left">
-									<h2>{description.heading}</h2>
+									<h2 className="animate-titles">
+										{description.heading}
+									</h2>
 									<ReactMarkdown
 										children={portfolio.description}
 									/>
 								</section>
 								<section className="section section_left">
-									<h2>{gallery.heading}</h2>
+									<h2 className="animate-titles">
+										{gallery.heading}
+									</h2>
 									{!loading ? (
 										<Gallery
 											photos={portfolio.galleryCollection.items.map(
@@ -132,7 +140,9 @@ function Project() {
 								</section>
 								<footer>
 									<section className="section section_left">
-										<h2>{takeaway.heading}</h2>
+										<h2 className="animate-titles">
+											{takeaway.heading}
+										</h2>
 										<ReactMarkdown
 											children={portfolio.takeaway}
 										/>

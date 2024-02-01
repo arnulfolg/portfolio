@@ -10,14 +10,14 @@ import { EDUCATION_QUERY } from "../../graphql/queries";
 interface EducationInterface {
 	sys: {
 		id: string;
-	}
+	};
 	title: string;
 	date: string;
 	subtitle: string;
 	image?: {
 		url: string;
 		alt?: string;
-	}
+	};
 }
 
 function Education() {
@@ -38,26 +38,37 @@ function Education() {
 					</header>
 					<section className="section section_left">
 						<header>
-							<h2>{content.education.heading}</h2>
+							<h2 className="animate-titles">
+								{content.education.heading}
+							</h2>
 						</header>
-						{content?.degreeCollection?.items.map((degree: EducationInterface) => {
-							return (
-								<EducationCard
-									key={degree.sys.id}
-									info={degree}
-								/>
-							);
-						})}
+						{content?.degreeCollection?.items.map(
+							(degree: EducationInterface) => {
+								return (
+									<EducationCard
+										key={degree.sys.id}
+										info={degree}
+									/>
+								);
+							}
+						)}
 					</section>
 					<section className="section section_left">
 						<header>
-							<h2>{content.certification.heading}</h2>
+							<h2 className="animate-titles">
+								{content.certification.heading}
+							</h2>
 						</header>
-						{content?.educationCollection?.items.map((cert: EducationInterface) => {
-							return (
-								<EducationCard key={cert.sys.id} info={cert} />
-							);
-						})}
+						{content?.educationCollection?.items.map(
+							(cert: EducationInterface) => {
+								return (
+									<EducationCard
+										key={cert.sys.id}
+										info={cert}
+									/>
+								);
+							}
+						)}
 					</section>
 				</>
 			)}

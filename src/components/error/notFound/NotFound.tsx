@@ -16,7 +16,7 @@ function NotFound() {
 			) : (
 				<section className="section not-found">
 					<section className="error">
-						<h2>{error.errorNumber}</h2>
+						<h2 className="animate-titles">{error.errorNumber}</h2>
 						<h3>{error.title}</h3>
 					</section>
 

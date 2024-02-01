@@ -4,27 +4,27 @@ body {
 
 .App {
 	@apply text-lg
-                min-h-screen
-                transition-all
-                duration-200
-                max-w-full
-                border-yellow-400
-                border-solid
-                bg-white
-                dark:bg-gray-900
-                dark:border-black;
-	border-width: 1.4rem;
+            min-h-screen
+            transition-all
+            duration-200
+            max-w-full
+            bg-white
+            dark:bg-gray-900
+            
+            border-yellow-400
+            dark:border-black;
+
+	border-width: 0 1.4rem;
 }
 
 .main {
 	@apply max-w-prose
-                mx-auto
-                px-8
-                py-32
-                mt-60
+            mx-auto
+            px-8
+            py-16
 
-                text-black
-                dark:text-white;
+            text-black
+            dark:text-white;
 }
 
 .section {
@@ -94,13 +94,13 @@ ul.list {
 
 a {
 	@apply text-black
-          underline
+            underline
 
-          hover:text-yellow-500
+            hover:text-yellow-500
 
-          dark:text-white
-          dark:hover:text-gray-300
-	        focus:outline-black;
+            dark:text-white
+            dark:hover:text-gray-300
+            focus:outline-black;
 }
 
 .dark a:focus {
@@ -114,4 +114,29 @@ a {
 
 :is(h1, h2, h3, h4, h5, h6) {
 	@apply font-rubik;
+}
+
+.animate-titles {
+	animation: headings linear both;
+	animation-timeline: view(block);
+	animation-range: contain 0% contain 20%;
+}
+
+@media (prefers-reduced-motion) {
+	.animate-titles {
+		animation: unset;
+	}
+}
+
+@supports (animation-range: contain 0% contain 20%) {
+	@keyframes headings {
+		from {
+			opacity: 0.5;
+			scale: 0.75;
+		}
+		to {
+			opacity: 1;
+			scale: 1;
+		}
+	}
 }

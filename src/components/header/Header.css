@@ -1,33 +1,15 @@
 .header {
-	@apply fixed
+	@apply sticky
 			z-50
 			bg-yellow-400
 			text-black
 			transition-all
+			top-0
+			w-full
 
 			dark:bg-black
 			dark:text-white;
-	width: calc(100% - 2.7rem);
-	min-height: 15rem;
-}
-
-.header::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 1.4rem;
-	bottom: 100%;
-
-	@apply bg-yellow-400
-			dark:bg-black;
-}
-
-.header_small {
-	@apply min-h-0
-			grid-rows-1
-			grid-cols-2;
-	min-height: 2rem;
-	grid-template-areas: "titles controls" !important;
+	height: 15rem;
 }
 
 .header {
@@ -35,11 +17,16 @@
 			auto-rows-max
 			gap-y-2.5
 			grid-cols-1
-			items-center;
+			items-center
+			content-center;
 
 	grid-template-areas:
 		"controls"
 		"titles";
+
+	animation: header-shrink linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0 350px;
 }
 
 .header .titles {
@@ -48,15 +35,44 @@
 	@apply py-8
 			content-center
 			justify-self-center;
+
+	animation: header-titles linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0 150px;
 }
-.header.header_small .titles {
+
+.header .titles h1 {
+	animation: header-heading linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0 150px;
+}
+
+.header .subtitle {
+	animation: header-subtitle linear forwards;
+	animation-timeline: scroll();
+	animation-range: 0 150px;
+}
+
+.header_compact {
+	@apply min-h-0
+			grid-rows-1
+			grid-cols-2;
+	grid-template-areas: "titles controls";
+	height: 5rem;
+
+	animation: none;
+}
+
+.header.header_compact .titles {
 	@apply ml-2
 			py-2
 			content-start
 			justify-self-start;
 }
-.header.header_small .titles h1 {
+
+.header.header_compact .titles h1 {
 	@apply mb-0;
+	animation: none;
 }
 
 .header .titles h1 {
@@ -72,18 +88,18 @@
 			leading-relaxed;
 }
 
-.header_small .titles {
+.header_compact .titles {
 	grid-area: titles;
 
 	@apply flex
 			items-center;
 }
 
-.header_small .titles h1 {
+.header_compact .titles h1 {
 	@apply text-3xl
 			p-0;
 }
-.header_small .titles p {
+.header_compact .titles p {
 	@apply hidden;
 }
 
@@ -118,7 +134,7 @@
 	@apply outline-white;
 }
 
-.header_small .toggleButton span {
+.header_compact .toggleButton span {
 	@apply hidden;
 }
 
@@ -126,7 +142,7 @@
 	@apply mr-2;
 }
 
-.header_small .toggleButton svg {
+.header_compact .toggleButton svg {
 	@apply mr-0;
 }
 
@@ -135,4 +151,41 @@
 		text-black
 
 		dark:text-white;
+}
+
+@media (prefers-reduced-motion) {
+	.header,
+	.header .titles,
+	.header .titles h1,
+	.header .subtitle {
+		animation: unset;
+	}
+}
+
+@supports (animation-range: 0 350px) {
+	@keyframes header-shrink {
+		to {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas: "titles controls";
+			height: 5rem;
+		}
+	}
+
+	@keyframes header-titles {
+		to {
+			@apply py-0 justify-self-start;
+		}
+	}
+
+	@keyframes header-heading {
+		to {
+			@apply text-2xl m-0;
+		}
+	}
+
+	@keyframes header-subtitle {
+		to {
+			@apply text-xs;
+		}
+	}
 }
